@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Settings(models.Model):
+class Home(models.Model):
     site_name= models.CharField(max_length= 50)
     logo= models.ImageField(upload_to= 'setting/')
     phone= models.CharField(max_length= 50)
