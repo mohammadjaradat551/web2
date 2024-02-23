@@ -11,7 +11,7 @@ from .forms import PropertyBookForm
 # Create your views here.
 class PropertyList(FilterView):
     model = Property
-    paginate_by= 2
+    paginate_by= 3
 
     #filter
     filterset_class= PropertyFilter

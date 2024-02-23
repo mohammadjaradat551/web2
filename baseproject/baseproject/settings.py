@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'accounts',
     'django_filters',
     'bootstrap4',
-
 ]
 
 MIDDLEWARE = [
