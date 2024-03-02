@@ -32,20 +32,33 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',#should be in the first line
     'about',
     'home',
     'property',
     'blog',
-    'accounts',
     'django_filters',
     'bootstrap4',
+    'django_summernote',
+
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'dj_rest_auth.registration',
 ]
+SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,6 +68,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
+    #'allauth.socialaccount.middleware.SocialAccountMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'baseproject.urls'
@@ -75,7 +94,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'baseproject.wsgi.application'
+#WSGI_APPLICATION = 'baseproject.wsgi.application'
 
 
 # Database
@@ -123,7 +142,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+STATIC_ROOT= os.path.join(BASE_DIR, 'static', 'staticroot')
 STATIC_URL = '/static/'
 STATICFILES_DIRS= [
     os.path.join(BASE_DIR, 'baseproject/static')
@@ -137,3 +156,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #media
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+
+# django_project/settings.py
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+

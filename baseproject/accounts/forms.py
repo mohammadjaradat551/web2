@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile
+from property.models import Property
 
 
 class LoginForm(forms.Form):
@@ -30,5 +31,16 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image', 'phone_number', 'address']
+
+
+class PasswordResetForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['email']
+
+class AddListForm(forms.ModelForm):
+    class Meta:
+        model = Property
+        fields= ['name', 'description', 'price', 'main_image','place', 'category']
 
 

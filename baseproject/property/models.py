@@ -28,9 +28,37 @@ class Property(models.Model):
     def __str__(self):
         return self.name
     
+    def count_of_reviews(self):
+        return self.property_review.all().count()
+    
     def get_absolute_url(self):
         return reverse('property:property_detail', kwargs= {'slug':self.slug})
     
+
+    def get_avg_rating(self):
+        all_reviews = self.property_review.all()
+        all_rating = 0
+        if len(all_reviews) > 0:
+            for review in all_reviews:
+                all_rating += review.rate
+            return  round(all_rating / len(all_reviews),1)
+        else :
+            return 'no review' 
+        
+
+
+    def check_availability(self):
+        all_reservations = self.property_book.all()
+        current_time= timezone.now().date()
+        for reservation in all_reservations:
+            if current_time > reservation.date_to.date() :
+                return 'available'  
+            elif current_time > reservation.date_from.date() and  current_time < reservation.date_to.date() :
+                reserved_to = reservation.date_to.date()
+                return f'in progress to {reserved_to}'
+            
+            else :
+                return 'available'
     
     
 class Place(models.Model):
@@ -82,6 +110,12 @@ class PropertyBook(models.Model):
     def __str__(self) :
         return str(self.property)
     
+
+    def available(self):
+        current_date= timezone.now().date()
+        return current_date > self.date_to.date() and current_date < self.date_from.date()
+    
+    available.boolean = True # for show the true and false signal
 
 
 

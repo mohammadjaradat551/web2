@@ -23,10 +23,26 @@ def signup(request):
     else :
         signup_form = UserCreateForm()
     return render(request, 'registration/signup.html', {'signup_form':signup_form})
-    
 
+def add_list(request):
+    form= AddListForm()
+    if request.method == 'POST':
+        form= AddListForm(request.POST, request.FILES)
+        # assign the owner attribute here
+        form.instance.owner= request.user
+        print('check valid')
 
+        if form.is_valid():
+            print('valid')
+            form.save()
+            return redirect('accounts:profile')
+        else:
+            # print the form errors here
+            print(form.errors)
+    else:
+        form= AddListForm()
 
+    return render(request, 'add_list.html', {'form':form})
 
 
 def sign_in(request):
@@ -39,7 +55,7 @@ def sign_in(request):
     elif request.method == 'POST':
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
-            
+            print('login_form.errors')
             username = login_form.cleaned_data['username']
             password = login_form.cleaned_data['password']
             user = authenticate(request,username=username,password=password)
@@ -48,6 +64,8 @@ def sign_in(request):
                 messages.success(request,f'Hi  welcome back!')
                 
                 return redirect(reverse('accounts:profile'))
+        else:
+            print(login_form.errors)
         
         messages.error(request,f'Invalid username or password')
         return render(request,'registration/login.html',{'login_form': login_form})
@@ -86,12 +104,15 @@ def my_listing(request):
 
 
 
+
+
+
 def edit_profile(request):
     profile= Profile.objects.get(user= request.user)
     if request.method == 'POST':
         user_form= UserForm(request.POST, instance= request.user)
         profile_form= ProfileForm(request.POST,request.FILES, instance= profile)
-        if user_form.is_valid and user_form.is_valid():
+        if user_form.is_valid and profile_form.is_valid():
             user_form.save()
             my_form= profile_form.save(commit= False)
             my_form.user = request.user
@@ -106,3 +127,17 @@ def edit_profile(request):
         'user_form': user_form,
         'profile_form': profile_form,
     })
+
+
+
+
+#its wrong, didint work
+def password_reset(request):
+    if request.method == 'POST':
+        reset_form= PasswordResetForm(request.POST)
+        if reset_form.is_valid():
+            reset_form.save()
+            return redirect(reverse('accounts:password_reset'))
+    else :
+        reset_form= PasswordResetForm()
+    return render(request, 'registration/password_reset.html', {'reset_form':reset_form})

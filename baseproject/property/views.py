@@ -1,12 +1,12 @@
 from typing import Any
 from django.shortcuts import  redirect
-
+from django.urls import reverse_lazy
 from .filters import PropertyFilter 
-from django.views.generic import  DetailView
+from django.views.generic import  DetailView, CreateView
 from django.views.generic.edit import FormMixin
 from django_filters.views import FilterView
 from .models import Property
-from .forms import PropertyBookForm
+from .forms import *
 
 # Create your views here.
 class PropertyList(FilterView):
@@ -41,7 +41,7 @@ class PropertyDetail(FormMixin, DetailView):
             # of the request, using the  slug
             my_form.save()
             return redirect('/')
-
+        
 
 
 

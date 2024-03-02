@@ -49,7 +49,8 @@
     							<i class="icon-star"></i>
     							<i class="icon-star"></i>
     							<i class="icon-star-o"></i>
-    							8 Rating</span>
+    							{{object.count_of_reviews}} Rating</span>
+								
     						</p>
     						<p>{{object.description}}</p>
     						</div>
@@ -58,9 +59,13 @@
           		
 				
 				
-				
-				
-				<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+				{% if object.check_availability == 'available' %}
+					<h4 class="mb-5">The Room Is available Today</h4>
+				{% else %}
+					<h4 class="mb-5">The Room Is Being Booked The Reservation {{object.check_availability}}</h4>
+
+				{% endif%}
+          		<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
           			<h4 class="mb-5">Check Availability &amp; Booking</h4>
           			<div class="fields">
           				<form  class="form" method='POST'>
@@ -72,7 +77,6 @@
 						</form>
 		            </div>
           		</div>
-          		
           		<div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
           			<h4 class="mb-4">Related Hotels</h4>
           			<div class="row">

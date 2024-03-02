@@ -27,13 +27,15 @@
       {% endif %}
       <h3> Login Now</h3>
 
-    <form  method="POST">
+    <form  method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form login_form %}
         {% buttons %}
             <button type="submit" class="btn btn-primary py-3">Login</button>
         {% endbuttons %}
     </form>
+    <p>Forgot Password?<a href="{% url 'accounts:password_reset' %}">Reset Password</a></p>
+    <p >Don't have a account? <a href="{% url 'accounts:signup'%}">Join Now</a></p>
 
 
 

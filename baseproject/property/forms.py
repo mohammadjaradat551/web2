@@ -1,5 +1,5 @@
 from django import forms
-from .models import PropertyBook
+from .models import PropertyBook, Property
 
 
 class PropertyBookForm(forms.ModelForm):
@@ -9,4 +9,6 @@ class PropertyBookForm(forms.ModelForm):
     class Meta:
         model = PropertyBook
         fields= ['date_from', 'date_to', 'guset', 'children']
+
+
         

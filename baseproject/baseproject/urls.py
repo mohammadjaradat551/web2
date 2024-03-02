@@ -21,12 +21,18 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    #path('accounts/', include('django.contrib.auth.urls')),#for django
+    path('accounts/', include('accounts.urls'), name='accounts'),
     path('admin/', admin.site.urls),
     path('property/', include('property.urls'), name='property'),
     path('blog/', include('blog.urls'), name='blog'),
     path('about/', include('about.urls'), name='about'),
     path('', include('home.urls'), name='home'),
-    path('accounts/', include('accounts.urls'), name='accounts'),
+    path('summernote/', include('django_summernote.urls')),
+
+    path('api-auth/', include('rest_framework.urls')),
+    path('rest-auth/', include('dj_rest_auth.urls')),
+    path('rest-auth/registration/', include('dj_rest_auth.registration.urls'))
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
