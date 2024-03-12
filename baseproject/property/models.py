@@ -88,6 +88,7 @@ class PropertyReview(models.Model):
     feed_back= models.TextField(max_length= 10000)
     created_at= models.DateTimeField(default= timezone.now)
 
+
     def __str__(self) :
         return str(self.property)
     

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--nks6!u3v-*)k31se!k2zk1rdi2d-*5*q#&lrg2hjex2)!&%!g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'mohammad551.pythonanywhere.com']
 
 
 # Application definition
@@ -56,7 +56,14 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'dj_rest_auth.registration',
+    
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 SITE_ID = 1
 
 
@@ -74,9 +81,15 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
     #'allauth.socialaccount.middleware.SocialAccountMiddleware',
     
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    
 ]
 
+
 ROOT_URLCONF = 'baseproject.urls'
+
+
+
 
 TEMPLATES = [
     {
@@ -162,4 +175,7 @@ MEDIA_URL = '/media/'
 # django_project/settings.py
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+
+#white noise
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
