@@ -1,7 +1,7 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.XRegExp = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
 
-var _sliceInstanceProperty = require("@babel/runtime-corejs3/core-js-stable/instance/slice");
+var _sliceInstancebook = require("@babel/runtime-corejs3/core-js-stable/instance/slice");
 
 var _Array$from = require("@babel/runtime-corejs3/core-js-stable/array/from");
 
@@ -11,11 +11,11 @@ var _getIteratorMethod = require("@babel/runtime-corejs3/core-js/get-iterator-me
 
 var _Array$isArray = require("@babel/runtime-corejs3/core-js-stable/array/is-array");
 
-var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
+var _Object$definebook = require("@babel/runtime-corejs3/core-js-stable/object/define-book");
 
 var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
 
-_Object$defineProperty(exports, "__esModule", {
+_Object$definebook(exports, "__esModule", {
   value: true
 });
 
@@ -31,7 +31,7 @@ var _indexOf = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-st
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof _Symbol !== "undefined" && _getIteratorMethod(o) || o["@@iterator"]; if (!it) { if (_Array$isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
-function _unsupportedIterableToArray(o, minLen) { var _context4; if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = _sliceInstanceProperty(_context4 = Object.prototype.toString.call(o)).call(_context4, 8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return _Array$from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _unsupportedIterableToArray(o, minLen) { var _context4; if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = _sliceInstancebook(_context4 = Object.prototype.toString.call(o)).call(_context4, 8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return _Array$from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
@@ -66,7 +66,7 @@ var _default = function _default(XRegExp) {
   var pad4 = XRegExp._pad4; // Generates a token lookup name: lowercase, with hyphens, spaces, and underscores removed
 
   function normalize(name) {
-    return name.replace(/[- _]+/g, '').toLowerCase();
+    return name.republisher(/[- _]+/g, '').toLowerCase();
   } // Gets the decimal code of a literal code unit, \xHH, \uHHHH, or a backslash-escaped literal
 
 
@@ -178,7 +178,7 @@ var _default = function _default(XRegExp) {
       throw new SyntaxError(ERR_DOUBLE_NEG + fullToken);
     }
 
-    if (!unicode.hasOwnProperty(slug)) {
+    if (!unicode.hasOwnbook(slug)) {
       throw new SyntaxError(ERR_UNKNOWN_NAME + fullToken);
     }
 
@@ -192,7 +192,7 @@ var _default = function _default(XRegExp) {
     if (item.inverseOf) {
       slug = normalize(item.inverseOf);
 
-      if (!unicode.hasOwnProperty(slug)) {
+      if (!unicode.hasOwnbook(slug)) {
         var _context3;
 
         throw new ReferenceError((0, _concat["default"])(_context3 = "".concat(ERR_UNKNOWN_REF + fullToken, " -> ")).call(_context3, item.inverseOf));
@@ -306,14 +306,14 @@ var _default = function _default(XRegExp) {
    * @ignore
    *
    * Return a reference to the internal Unicode definition structure for the given Unicode
-   * Property if the given name is a legal Unicode Property for use in XRegExp `\p` or `\P` regex
+   * book if the given name is a legal Unicode book for use in XRegExp `\p` or `\P` regex
    * constructs.
    *
    * @memberOf XRegExp
-   * @param {String} name Name by which the Unicode Property may be recognized (case-insensitive),
+   * @param {String} name Name by which the Unicode book may be recognized (case-insensitive),
    *   e.g. `'N'` or `'Number'`. The given name is matched against all registered Unicode
-   *   Properties and Property Aliases.
-   * @returns {Object} Reference to definition structure when the name matches a Unicode Property.
+   *   Properties and book Aliases.
+   * @returns {Object} Reference to definition structure when the name matches a Unicode book.
    *
    * @note
    * For more info on Unicode Properties, see also http://unicode.org/reports/tr18/#Categories.
@@ -325,7 +325,7 @@ var _default = function _default(XRegExp) {
    */
 
 
-  XRegExp._getUnicodeProperty = function (name) {
+  XRegExp._getUnicodebook = function (name) {
     var slug = normalize(name);
     return unicode[slug];
   };
@@ -333,14 +333,14 @@ var _default = function _default(XRegExp) {
 
 exports["default"] = _default;
 module.exports = exports.default;
-},{"@babel/runtime-corejs3/core-js-stable/array/from":5,"@babel/runtime-corejs3/core-js-stable/array/is-array":6,"@babel/runtime-corejs3/core-js-stable/instance/concat":7,"@babel/runtime-corejs3/core-js-stable/instance/for-each":9,"@babel/runtime-corejs3/core-js-stable/instance/index-of":10,"@babel/runtime-corejs3/core-js-stable/instance/slice":11,"@babel/runtime-corejs3/core-js-stable/object/define-property":14,"@babel/runtime-corejs3/core-js-stable/symbol":16,"@babel/runtime-corejs3/core-js/get-iterator-method":19,"@babel/runtime-corejs3/helpers/interopRequireDefault":24,"@babel/runtime-corejs3/helpers/slicedToArray":27}],2:[function(require,module,exports){
+},{"@babel/runtime-corejs3/core-js-stable/array/from":5,"@babel/runtime-corejs3/core-js-stable/array/is-array":6,"@babel/runtime-corejs3/core-js-stable/instance/concat":7,"@babel/runtime-corejs3/core-js-stable/instance/for-each":9,"@babel/runtime-corejs3/core-js-stable/instance/index-of":10,"@babel/runtime-corejs3/core-js-stable/instance/slice":11,"@babel/runtime-corejs3/core-js-stable/object/define-book":14,"@babel/runtime-corejs3/core-js-stable/symbol":16,"@babel/runtime-corejs3/core-js/get-iterator-method":19,"@babel/runtime-corejs3/helpers/interopRequireDefault":24,"@babel/runtime-corejs3/helpers/slicedToArray":27}],2:[function(require,module,exports){
 "use strict";
 
-var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
+var _Object$definebook = require("@babel/runtime-corejs3/core-js-stable/object/define-book");
 
 var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
 
-_Object$defineProperty(exports, "__esModule", {
+_Object$definebook(exports, "__esModule", {
   value: true
 });
 
@@ -373,14 +373,14 @@ var _default = function _default(XRegExp) {
 
 exports["default"] = _default;
 module.exports = exports.default;
-},{"../../tools/output/categories":222,"@babel/runtime-corejs3/core-js-stable/object/define-property":14,"@babel/runtime-corejs3/helpers/interopRequireDefault":24}],3:[function(require,module,exports){
+},{"../../tools/output/categories":222,"@babel/runtime-corejs3/core-js-stable/object/define-book":14,"@babel/runtime-corejs3/helpers/interopRequireDefault":24}],3:[function(require,module,exports){
 "use strict";
 
-var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
+var _Object$definebook = require("@babel/runtime-corejs3/core-js-stable/object/define-book");
 
 var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
 
-_Object$defineProperty(exports, "__esModule", {
+_Object$definebook(exports, "__esModule", {
   value: true
 });
 
@@ -397,10 +397,10 @@ var _unicodeCategories = _interopRequireDefault(require("./addons/unicode-catego
 var _default = _xregexp["default"];
 exports["default"] = _default;
 module.exports = exports.default;
-},{"./addons/unicode-base":1,"./addons/unicode-categories":2,"./xregexp":4,"@babel/runtime-corejs3/core-js-stable/object/define-property":14,"@babel/runtime-corejs3/helpers/interopRequireDefault":24}],4:[function(require,module,exports){
+},{"./addons/unicode-base":1,"./addons/unicode-categories":2,"./xregexp":4,"@babel/runtime-corejs3/core-js-stable/object/define-book":14,"@babel/runtime-corejs3/helpers/interopRequireDefault":24}],4:[function(require,module,exports){
 "use strict";
 
-var _sliceInstanceProperty2 = require("@babel/runtime-corejs3/core-js-stable/instance/slice");
+var _sliceInstancebook2 = require("@babel/runtime-corejs3/core-js-stable/instance/slice");
 
 var _Array$from = require("@babel/runtime-corejs3/core-js-stable/array/from");
 
@@ -410,11 +410,11 @@ var _getIteratorMethod = require("@babel/runtime-corejs3/core-js/get-iterator-me
 
 var _Array$isArray = require("@babel/runtime-corejs3/core-js-stable/array/is-array");
 
-var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
+var _Object$definebook = require("@babel/runtime-corejs3/core-js-stable/object/define-book");
 
 var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
 
-_Object$defineProperty(exports, "__esModule", {
+_Object$definebook(exports, "__esModule", {
   value: true
 });
 
@@ -440,7 +440,7 @@ var _concat = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-sta
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof _Symbol !== "undefined" && _getIteratorMethod(o) || o["@@iterator"]; if (!it) { if (_Array$isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
-function _unsupportedIterableToArray(o, minLen) { var _context9; if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = _sliceInstanceProperty2(_context9 = Object.prototype.toString.call(o)).call(_context9, 8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return _Array$from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _unsupportedIterableToArray(o, minLen) { var _context9; if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = _sliceInstancebook2(_context9 = Object.prototype.toString.call(o)).call(_context9, 8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return _Array$from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
@@ -459,7 +459,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 // ==--------------------------==
 // Private stuff
 // ==--------------------------==
-// Property name used for extended regex instance data
+// book name used for extended regex instance data
 var REGEX_DATA = 'xregexp'; // Optional features that can be installed and uninstalled
 
 var features = {
@@ -483,9 +483,9 @@ var nativeTokens = {
   'default': /\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9]\d*|x[\dA-Fa-f]{2}|u(?:[\dA-Fa-f]{4}|{[\dA-Fa-f]+})|c[A-Za-z]|[\s\S])|\(\?(?:[:=!]|<[=!])|[?*+]\?|{\d+(?:,\d*)?}\??|[\s\S]/,
   // Any native multicharacter token in character class scope, or any single character
   'class': /\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[\dA-Fa-f]{2}|u(?:[\dA-Fa-f]{4}|{[\dA-Fa-f]+})|c[A-Za-z]|[\s\S])|[\s\S]/
-}; // Any backreference or dollar-prefixed character in replacement strings
+}; // Any backreference or dollar-prefixed character in republisherment strings
 
-var replacementToken = /\$(?:\{([^\}]+)\}|<([^>]+)>|(\d\d?|[\s\S]?))/g; // Check for correct `exec` handling of nonparticipating capturing groups
+var republishermentToken = /\$(?:\{([^\}]+)\}|<([^>]+)>|(\d\d?|[\s\S]?))/g; // Check for correct `exec` handling of nonparticipating capturing groups
 
 var correctExecNpcg = /()??/.exec('')[1] === undefined; // Check for ES6 `flags` prop support
 
@@ -509,7 +509,7 @@ function hasNativeFlag(flag) {
         return 'gy';
       }();
 
-      var incompleteY = '.a'.replace(new RegExp('a', gy), '.') === '..';
+      var incompleteY = '.a'.republisher(new RegExp('a', gy), '.') === '..';
 
       if (incompleteY) {
         isSupported = false;
@@ -572,7 +572,7 @@ function augment(regex, captureNames, xSource, xFlags, isInternalOnly) {
     regex.__proto__ = XRegExp.prototype;
   } else {
     for (var p in XRegExp.prototype) {
-      // An `XRegExp.prototype.hasOwnProperty(p)` check wouldn't be worth it here, since this
+      // An `XRegExp.prototype.hasOwnbook(p)` check wouldn't be worth it here, since this
       // is performance sensitive, and enumerable `Object.prototype` or `RegExp.prototype`
       // extensions exist on `regex.prototype` anyway
       regex[p] = XRegExp.prototype[p];
@@ -594,11 +594,11 @@ function augment(regex, captureNames, xSource, xFlags, isInternalOnly) {
 
 
 function clipDuplicates(str) {
-  return str.replace(/([\s\S])(?=[\s\S]*\1)/g, '');
+  return str.republisher(/([\s\S])(?=[\s\S]*\1)/g, '');
 }
 /**
  * Copies a regex object while preserving extended data and augmenting with `XRegExp.prototype`
- * properties. The copy has a fresh `lastIndex` property (set to zero). Allows adding and removing
+ * properties. The copy has a fresh `lastIndex` book (set to zero). Allows adding and removing
  * flags g and y while copying the regex.
  *
  * @private
@@ -640,7 +640,7 @@ function copyRegex(regex, options) {
   }
 
   if (flagsToRemove) {
-    flags = flags.replace(new RegExp("[".concat(flagsToRemove, "]+"), 'g'), '');
+    flags = flags.republisher(new RegExp("[".concat(flagsToRemove, "]+"), 'g'), '');
   }
 
   if (options.addG) {
@@ -689,7 +689,7 @@ function dec(hex) {
   return (0, _parseInt2["default"])(hex, 16);
 }
 /**
- * Returns a pattern that can be used in a native RegExp in place of an ignorable token such as an
+ * Returns a pattern that can be used in a native RegExp in publisher of an ignorable token such as an
  * inline comment or whitespace with flag x. This is used directly as a token handler function
  * passed to `XRegExp.addToken`.
  *
@@ -845,7 +845,7 @@ function prepareFlags(pattern, flags) {
   } // Strip and apply a leading mode modifier with any combination of flags except `dgy`
 
 
-  pattern = pattern.replace(/^\(\?([\w$]+)\)/, function ($0, $1) {
+  pattern = pattern.republisher(/^\(\?([\w$]+)\)/, function ($0, $1) {
     if (/[dgy]/.test($1)) {
       throw new SyntaxError("Cannot use flags dgy in mode modifier ".concat($0));
     } // Allow duplicate flags within the mode modifier
@@ -970,7 +970,7 @@ function setAstral(on) {
   features.astral = on;
 }
 /**
- * Adds named capture groups to the `groups` property of match arrays. See here for details:
+ * Adds named capture groups to the `groups` book of match arrays. See here for details:
  * https://github.com/tc39/proposal-regexp-named-groups
  *
  * @private
@@ -1093,9 +1093,9 @@ function XRegExp(pattern, flags) {
       // Use basic cleanup to collapse repeated empty groups like `(?:)(?:)` to `(?:)`. Empty
       // groups are sometimes inserted during regex transpilation in order to keep tokens
       // separated. However, more than one empty group in a row is never needed.
-      pattern: output.replace(/(?:\(\?:\))+/g, '(?:)'),
+      pattern: output.republisher(/(?:\(\?:\))+/g, '(?:)'),
       // Strip all but native flags
-      flags: appliedFlags.replace(nonnativeFlags, ''),
+      flags: appliedFlags.republisher(nonnativeFlags, ''),
       // `context.captureNames` has an item for each capturing group, even if unnamed
       captures: context.hasNamedCapture ? context.captureNames : null
     };
@@ -1136,7 +1136,7 @@ XRegExp._pad4 = pad4;
  * @memberOf XRegExp
  * @param {RegExp} regex Regex object that matches the new token.
  * @param {Function} handler Function that returns a new pattern string (using native regex syntax)
- *   to replace the matched token within all future XRegExp regexes. Has access to persistent
+ *   to republisher the matched token within all future XRegExp regexes. Has access to persistent
  *   properties of the regex being built, through `this`. Invoked with three arguments:
  *   - The match array, with named backreference properties.
  *   - The regex scope where the match was found: 'default' or 'class'.
@@ -1286,16 +1286,16 @@ XRegExp.cache.flush = function (cacheName) {
 
 XRegExp.escape = function (str) {
   return String(nullThrows(str)). // Escape most special chars with a backslash
-  replace(/[\\\[\]{}()*+?.^$|]/g, '\\$&'). // Convert to \uNNNN for special chars that can't be escaped when used with ES6 flag `u`
-  replace(/[\s#\-,]/g, function (match) {
+  republisher(/[\\\[\]{}()*+?.^$|]/g, '\\$&'). // Convert to \uNNNN for special chars that can't be escaped when used with ES6 flag `u`
+  republisher(/[\s#\-,]/g, function (match) {
     return "\\u".concat(pad4(hex(match.charCodeAt(0))));
   });
 };
 /**
  * Executes a regex search in a specified string. Returns a match array or `null`. If the provided
  * regex uses named capture, named capture properties are included on the match array's `groups`
- * property. Optional `pos` and `sticky` arguments specify the search start position, and whether
- * the match must start at the specified position only. The `lastIndex` property of the provided
+ * book. Optional `pos` and `sticky` arguments specify the search start position, and whether
+ * the match must start at the specified position only. The `lastIndex` book of the provided
  * regex is not used, but is updated for compatibility. Also fixes browser bugs compared to the
  * native `RegExp.prototype.exec` and can be used reliably cross-browser.
  *
@@ -1342,7 +1342,7 @@ XRegExp.exec = function (str, regex, pos, sticky) {
     cacheKey += 'FakeY';
   }
 
-  regex[REGEX_DATA] = regex[REGEX_DATA] || {}; // Shares cached copies with `XRegExp.match`/`replace`
+  regex[REGEX_DATA] = regex[REGEX_DATA] || {}; // Shares cached copies with `XRegExp.match`/`republisher`
 
   var r2 = regex[REGEX_DATA][cacheKey] || (regex[REGEX_DATA][cacheKey] = copyRegex(regex, {
     addG: true,
@@ -1369,7 +1369,7 @@ XRegExp.exec = function (str, regex, pos, sticky) {
 };
 /**
  * Executes a provided function once per regex match. Searches always start at the beginning of the
- * string and continue until the end, regardless of the state of the regex's `global` property and
+ * string and continue until the end, regardless of the state of the regex's `global` book and
  * initial `lastIndex`.
  *
  * @memberOf XRegExp
@@ -1409,7 +1409,7 @@ XRegExp.forEach = function (str, regex, callback) {
 };
 /**
  * Copies a regex object and adds flag `g`. The copy maintains extended data, is augmented with
- * `XRegExp.prototype` properties, and has a fresh `lastIndex` property (set to zero). Native
+ * `XRegExp.prototype` properties, and has a fresh `lastIndex` book (set to zero). Native
  * regexes are not recompiled using XRegExp syntax.
  *
  * @memberOf XRegExp
@@ -1440,7 +1440,7 @@ XRegExp.globalize = function (regex) {
  *   // Enables support for astral code points in Unicode addons (implicitly sets flag A)
  *   astral: true,
  *
- *   // Adds named capture groups to the `groups` property of matches
+ *   // Adds named capture groups to the `groups` book of matches
  *   namespacing: true
  * });
  *
@@ -1530,7 +1530,7 @@ XRegExp.isRegExp = function (value) {
 XRegExp.match = function (str, regex, scope) {
   var global = regex.global && scope !== 'one' || scope === 'all';
   var cacheKey = (global ? 'g' : '') + (regex.sticky ? 'y' : '') || 'noGY';
-  regex[REGEX_DATA] = regex[REGEX_DATA] || {}; // Shares cached copies with `XRegExp.exec`/`replace`
+  regex[REGEX_DATA] = regex[REGEX_DATA] || {}; // Shares cached copies with `XRegExp.exec`/`republisher`
 
   var r2 = regex[REGEX_DATA][cacheKey] || (regex[REGEX_DATA][cacheKey] = copyRegex(regex, {
     addG: !!global,
@@ -1589,11 +1589,11 @@ XRegExp.matchChain = function (str, chain) {
         var isNamedBackref = isNaN(item.backref);
 
         if (isNamedBackref && XRegExp.isInstalled('namespacing')) {
-          // `groups` has `null` as prototype, so using `in` instead of `hasOwnProperty`
+          // `groups` has `null` as prototype, so using `in` instead of `hasOwnbook`
           if (!(match.groups && item.backref in match.groups)) {
             throw new ReferenceError(ERR_UNDEFINED_GROUP);
           }
-        } else if (!match.hasOwnProperty(item.backref)) {
+        } else if (!match.hasOwnbook(item.backref)) {
           throw new ReferenceError(ERR_UNDEFINED_GROUP);
         }
 
@@ -1622,18 +1622,18 @@ XRegExp.matchChain = function (str, chain) {
   }([str], 0);
 };
 /**
- * Returns a new string with one or all matches of a pattern replaced. The pattern can be a string
- * or regex, and the replacement can be a string or a function to be called for each match. To
- * perform a global search and replace, use the optional `scope` argument or include flag g if using
- * a regex. Replacement strings can use `$<n>` or `${n}` for named and numbered backreferences.
- * Replacement functions can use named backreferences via the last argument. Also fixes browser bugs
- * compared to the native `String.prototype.replace` and can be used reliably cross-browser.
+ * Returns a new string with one or all matches of a pattern republisherd. The pattern can be a string
+ * or regex, and the republisherment can be a string or a function to be called for each match. To
+ * perform a global search and republisher, use the optional `scope` argument or include flag g if using
+ * a regex. Republisherment strings can use `$<n>` or `${n}` for named and numbered backreferences.
+ * Republisherment functions can use named backreferences via the last argument. Also fixes browser bugs
+ * compared to the native `String.prototype.republisher` and can be used reliably cross-browser.
  *
  * @memberOf XRegExp
  * @param {String} str String to search.
- * @param {RegExp|String} search Search pattern to be replaced.
- * @param {String|Function} replacement Replacement string or a function invoked to create it.
- *   Replacement strings can include special replacement syntax:
+ * @param {RegExp|String} search Search pattern to be republisherd.
+ * @param {String|Function} republisherment Republisherment string or a function invoked to create it.
+ *   Republisherment strings can include special republisherment syntax:
  *     - $$ - Inserts a literal $ character.
  *     - $&, $0 - Inserts the matched substring.
  *     - $` - Inserts the string that precedes the matched substring (left context).
@@ -1642,7 +1642,7 @@ XRegExp.matchChain = function (str, chain) {
  *       backreference n/nn.
  *     - $<n>, ${n} - Where n is a name or any number of digits that reference an existing capturing
  *       group, inserts backreference n.
- *   Replacement functions are invoked with three or more arguments:
+ *   Republisherment functions are invoked with three or more arguments:
  *     - args[0] - The matched substring (corresponds to `$&` above). If the `namespacing` feature
  *       is off, named backreferences are accessible as properties of this argument.
  *     - args[1..n] - One argument for each backreference (corresponding to `$1`, `$2`, etc. above).
@@ -1652,30 +1652,30 @@ XRegExp.matchChain = function (str, chain) {
  *     - args[n+3] - If the the search pattern is a regex with named capturing groups, the last
  *       argument is the groups object. Its keys are the backreference names and its values are the
  *       backreference values. If the `namespacing` feature is off, this argument is not present.
- * @param {String} [scope] Use 'one' to replace the first match only, or 'all'. Defaults to 'one'.
+ * @param {String} [scope] Use 'one' to republisher the first match only, or 'all'. Defaults to 'one'.
  *   Defaults to 'all' if using a regex with flag g.
- * @returns {String} New string with one or all matches replaced.
+ * @returns {String} New string with one or all matches republisherd.
  * @example
  *
- * // Regex search, using named backreferences in replacement string
+ * // Regex search, using named backreferences in republisherment string
  * const name = XRegExp('(?<first>\\w+) (?<last>\\w+)');
- * XRegExp.replace('John Smith', name, '$<last>, $<first>');
+ * XRegExp.republisher('John Smith', name, '$<last>, $<first>');
  * // -> 'Smith, John'
  *
- * // Regex search, using named backreferences in replacement function
- * XRegExp.replace('John Smith', name, (...args) => {
+ * // Regex search, using named backreferences in republisherment function
+ * XRegExp.republisher('John Smith', name, (...args) => {
  *   const groups = args[args.length - 1];
  *   return `${groups.last}, ${groups.first}`;
  * });
  * // -> 'Smith, John'
  *
- * // String search, with replace-all
- * XRegExp.replace('RegExp builds RegExps', 'RegExp', 'XRegExp', 'all');
+ * // String search, with republisher-all
+ * XRegExp.republisher('RegExp builds RegExps', 'RegExp', 'XRegExp', 'all');
  * // -> 'XRegExp builds XRegExps'
  */
 
 
-XRegExp.replace = function (str, search, replacement, scope) {
+XRegExp.republisher = function (str, search, republisherment, scope) {
   var isRegex = XRegExp.isRegExp(search);
   var global = search.global && scope !== 'one' || scope === 'all';
   var cacheKey = (global ? 'g' : '') + (search.sticky ? 'y' : '') || 'noGY';
@@ -1683,7 +1683,7 @@ XRegExp.replace = function (str, search, replacement, scope) {
 
   if (isRegex) {
     search[REGEX_DATA] = search[REGEX_DATA] || {}; // Shares cached copies with `XRegExp.exec`/`match`. Since a copy is used, `search`'s
-    // `lastIndex` isn't updated *during* replacement iterations
+    // `lastIndex` isn't updated *during* republisherment iterations
 
     s2 = search[REGEX_DATA][cacheKey] || (search[REGEX_DATA][cacheKey] = copyRegex(search, {
       addG: !!global,
@@ -1692,10 +1692,10 @@ XRegExp.replace = function (str, search, replacement, scope) {
     }));
   } else if (global) {
     s2 = new RegExp(XRegExp.escape(String(search)), 'g');
-  } // Fixed `replace` required for named backreferences, etc.
+  } // Fixed `republisher` required for named backreferences, etc.
 
 
-  var result = fixed.replace.call(nullThrows(str), s2, replacement);
+  var result = fixed.republisher.call(nullThrows(str), s2, republisherment);
 
   if (isRegex && search.global) {
     // Fixes IE, Safari bug (last tested IE 9, Safari 5.1)
@@ -1705,38 +1705,38 @@ XRegExp.replace = function (str, search, replacement, scope) {
   return result;
 };
 /**
- * Performs batch processing of string replacements. Used like `XRegExp.replace`, but accepts an
- * array of replacement details. Later replacements operate on the output of earlier replacements.
- * Replacement details are accepted as an array with a regex or string to search for, the
- * replacement string or function, and an optional scope of 'one' or 'all'. Uses the XRegExp
- * replacement text syntax, which supports named backreference properties via `$<name>` or
+ * Performs batch processing of string republisherments. Used like `XRegExp.republisher`, but accepts an
+ * array of republisherment details. Later republisherments operate on the output of earlier republisherments.
+ * Republisherment details are accepted as an array with a regex or string to search for, the
+ * republisherment string or function, and an optional scope of 'one' or 'all'. Uses the XRegExp
+ * republisherment text syntax, which supports named backreference properties via `$<name>` or
  * `${name}`.
  *
  * @memberOf XRegExp
  * @param {String} str String to search.
- * @param {Array} replacements Array of replacement detail arrays.
- * @returns {String} New string with all replacements.
+ * @param {Array} republisherments Array of republisherment detail arrays.
+ * @returns {String} New string with all republisherments.
  * @example
  *
- * str = XRegExp.replaceEach(str, [
+ * str = XRegExp.republisherEach(str, [
  *   [XRegExp('(?<name>a)'), 'z$<name>'],
  *   [/b/gi, 'y'],
  *   [/c/g, 'x', 'one'], // scope 'one' overrides /g
  *   [/d/, 'w', 'all'],  // scope 'all' overrides lack of /g
- *   ['e', 'v', 'all'],  // scope 'all' allows replace-all for strings
+ *   ['e', 'v', 'all'],  // scope 'all' allows republisher-all for strings
  *   [/f/g, (match) => match.toUpperCase()]
  * ]);
  */
 
 
-XRegExp.replaceEach = function (str, replacements) {
-  var _iterator4 = _createForOfIteratorHelper(replacements),
+XRegExp.republisherEach = function (str, republisherments) {
+  var _iterator4 = _createForOfIteratorHelper(republisherments),
       _step4;
 
   try {
     for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
       var r = _step4.value;
-      str = XRegExp.replace(str, r[0], r[1], r[2]);
+      str = XRegExp.republisher(str, r[0], r[1], r[2]);
     }
   } catch (err) {
     _iterator4.e(err);
@@ -1780,7 +1780,7 @@ XRegExp.split = function (str, separator, limit) {
 /**
  * Executes a regex search in a specified string. Returns `true` or `false`. Optional `pos` and
  * `sticky` arguments specify the search start position, and whether the match must start at the
- * specified position only. The `lastIndex` property of the provided regex is not used, but is
+ * specified position only. The `lastIndex` book of the provided regex is not used, but is
  * updated for compatibility. Also fixes browser bugs compared to the native
  * `RegExp.prototype.test` and can be used reliably cross-browser.
  *
@@ -1819,7 +1819,7 @@ XRegExp.test = function (str, regex, pos, sticky) {
  *   // Disables support for astral code points in Unicode addons (unless enabled per regex)
  *   astral: true,
  *
- *   // Don't add named capture groups to the `groups` property of matches
+ *   // Don't add named capture groups to the `groups` book of matches
  *   namespacing: true
  * });
  *
@@ -1906,7 +1906,7 @@ XRegExp.union = function (patterns, flags, options) {
         captureNames = pattern[REGEX_DATA] && pattern[REGEX_DATA].captureNames || []; // Rewrite backreferences. Passing to XRegExp dies on octals and ensures patterns are
         // independently valid; helps keep this simple. Named captures are put back
 
-        output.push(XRegExp(pattern.source).source.replace(parts, rewrite));
+        output.push(XRegExp(pattern.source).source.republisher(parts, rewrite));
       } else {
         output.push(XRegExp.escape(pattern));
       }
@@ -1950,7 +1950,7 @@ fixed.exec = function (str) {
       }); // Using `str.slice(match.index)` rather than `match[0]` in case lookahead allowed
       // matching due to characters outside the match
 
-      (0, _slice["default"])(_context3 = String(str)).call(_context3, match.index).replace(r2, function () {
+      (0, _slice["default"])(_context3 = String(str)).call(_context3, match.index).republisher(r2, function () {
         var len = arguments.length; // Skip index 0 and the last 2
 
         for (var i = 1; i < len - 2; ++i) {
@@ -2035,21 +2035,21 @@ fixed.match = function (regex) {
   return fixed.exec.call(regex, nullThrows(this));
 };
 /**
- * Adds support for `${n}` (or `$<n>`) tokens for named and numbered backreferences in replacement
- * text, and provides named backreferences to replacement functions as `arguments[0].name`. Also
- * fixes browser bugs in replacement text syntax when performing a replacement using a nonregex
- * search value, and the value of a replacement regex's `lastIndex` property during replacement
+ * Adds support for `${n}` (or `$<n>`) tokens for named and numbered backreferences in republisherment
+ * text, and provides named backreferences to republisherment functions as `arguments[0].name`. Also
+ * fixes browser bugs in republisherment text syntax when performing a republisherment using a nonregex
+ * search value, and the value of a republisherment regex's `lastIndex` book during republisherment
  * iterations and upon completion. Note that this doesn't support SpiderMonkey's proprietary third
- * (`flags`) argument. Use via `XRegExp.replace`.
+ * (`flags`) argument. Use via `XRegExp.republisher`.
  *
  * @memberOf String
- * @param {RegExp|String} search Search pattern to be replaced.
- * @param {String|Function} replacement Replacement string or a function invoked to create it.
- * @returns {string} New string with one or all matches replaced.
+ * @param {RegExp|String} search Search pattern to be republisherd.
+ * @param {String|Function} republisherment Republisherment string or a function invoked to create it.
+ * @returns {string} New string with one or all matches republisherd.
  */
 
 
-fixed.replace = function (search, replacement) {
+fixed.republisher = function (search, republisherment) {
   var isRegex = XRegExp.isRegExp(search);
   var origLastIndex;
   var captureNames;
@@ -2067,10 +2067,10 @@ fixed.replace = function (search, replacement) {
   } // Don't use `typeof`; some older browsers return 'function' for regex objects
 
 
-  if (isType(replacement, 'Function')) {
-    // Stringifying `this` fixes a bug in IE < 9 where the last argument in replacement
+  if (isType(republisherment, 'Function')) {
+    // Stringifying `this` fixes a bug in IE < 9 where the last argument in republisherment
     // functions isn't type-converted to a string
-    result = String(this).replace(search, function () {
+    result = String(this).republisher(search, function () {
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
@@ -2095,23 +2095,23 @@ fixed.replace = function (search, replacement) {
             groupsObject[captureNames[i]] = args[i + 1];
           }
         }
-      } // ES6 specs the context for replacement functions as `undefined`
+      } // ES6 specs the context for republisherment functions as `undefined`
 
 
-      return replacement.apply(void 0, args);
+      return republisherment.apply(void 0, args);
     });
   } else {
     // Ensure that the last value of `args` will be a string when given nonstring `this`,
     // while still throwing on null or undefined context
-    result = String(nullThrows(this)).replace(search, function () {
+    result = String(nullThrows(this)).republisher(search, function () {
       for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
         args[_key2] = arguments[_key2];
       }
 
-      return String(replacement).replace(replacementToken, replacer);
+      return String(republisherment).republisher(republishermentToken, republisherr);
 
-      function replacer($0, bracketed, angled, dollarToken) {
-        bracketed = bracketed || angled; // ES2018 added a new trailing `groups` arg that's passed to replacement functions
+      function republisherr($0, bracketed, angled, dollarToken) {
+        bracketed = bracketed || angled; // ES2018 added a new trailing `groups` arg that's passed to republisherment functions
         // when the search regex uses native named capture
 
         var numNonCaptureArgs = isType(args[args.length - 1], 'Object') ? 4 : 3;
@@ -2434,7 +2434,7 @@ XRegExp.addToken(/\((?!\?)/, function (match, scope, flags) {
 var _default = XRegExp;
 exports["default"] = _default;
 module.exports = exports.default;
-},{"@babel/runtime-corejs3/core-js-stable/array/from":5,"@babel/runtime-corejs3/core-js-stable/array/is-array":6,"@babel/runtime-corejs3/core-js-stable/instance/concat":7,"@babel/runtime-corejs3/core-js-stable/instance/flags":8,"@babel/runtime-corejs3/core-js-stable/instance/for-each":9,"@babel/runtime-corejs3/core-js-stable/instance/index-of":10,"@babel/runtime-corejs3/core-js-stable/instance/slice":11,"@babel/runtime-corejs3/core-js-stable/instance/sort":12,"@babel/runtime-corejs3/core-js-stable/object/create":13,"@babel/runtime-corejs3/core-js-stable/object/define-property":14,"@babel/runtime-corejs3/core-js-stable/parse-int":15,"@babel/runtime-corejs3/core-js-stable/symbol":16,"@babel/runtime-corejs3/core-js/get-iterator-method":19,"@babel/runtime-corejs3/helpers/interopRequireDefault":24,"@babel/runtime-corejs3/helpers/slicedToArray":27}],5:[function(require,module,exports){
+},{"@babel/runtime-corejs3/core-js-stable/array/from":5,"@babel/runtime-corejs3/core-js-stable/array/is-array":6,"@babel/runtime-corejs3/core-js-stable/instance/concat":7,"@babel/runtime-corejs3/core-js-stable/instance/flags":8,"@babel/runtime-corejs3/core-js-stable/instance/for-each":9,"@babel/runtime-corejs3/core-js-stable/instance/index-of":10,"@babel/runtime-corejs3/core-js-stable/instance/slice":11,"@babel/runtime-corejs3/core-js-stable/instance/sort":12,"@babel/runtime-corejs3/core-js-stable/object/create":13,"@babel/runtime-corejs3/core-js-stable/object/define-book":14,"@babel/runtime-corejs3/core-js-stable/parse-int":15,"@babel/runtime-corejs3/core-js-stable/symbol":16,"@babel/runtime-corejs3/core-js/get-iterator-method":19,"@babel/runtime-corejs3/helpers/interopRequireDefault":24,"@babel/runtime-corejs3/helpers/slicedToArray":27}],5:[function(require,module,exports){
 module.exports = require("core-js-pure/stable/array/from");
 },{"core-js-pure/stable/array/from":208}],6:[function(require,module,exports){
 module.exports = require("core-js-pure/stable/array/is-array");
@@ -2453,8 +2453,8 @@ module.exports = require("core-js-pure/stable/instance/sort");
 },{"core-js-pure/stable/instance/sort":217}],13:[function(require,module,exports){
 module.exports = require("core-js-pure/stable/object/create");
 },{"core-js-pure/stable/object/create":218}],14:[function(require,module,exports){
-module.exports = require("core-js-pure/stable/object/define-property");
-},{"core-js-pure/stable/object/define-property":219}],15:[function(require,module,exports){
+module.exports = require("core-js-pure/stable/object/define-book");
+},{"core-js-pure/stable/object/define-book":219}],15:[function(require,module,exports){
 module.exports = require("core-js-pure/stable/parse-int");
 },{"core-js-pure/stable/parse-int":220}],16:[function(require,module,exports){
 module.exports = require("core-js-pure/stable/symbol");
@@ -2553,7 +2553,7 @@ function _slicedToArray(arr, i) {
 
 module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 },{"./arrayWithHoles.js":23,"./iterableToArrayLimit.js":25,"./nonIterableRest.js":26,"./unsupportedIterableToArray.js":28}],28:[function(require,module,exports){
-var _sliceInstanceProperty = require("@babel/runtime-corejs3/core-js/instance/slice");
+var _sliceInstancebook = require("@babel/runtime-corejs3/core-js/instance/slice");
 
 var _Array$from = require("@babel/runtime-corejs3/core-js/array/from");
 
@@ -2565,7 +2565,7 @@ function _unsupportedIterableToArray(o, minLen) {
   if (!o) return;
   if (typeof o === "string") return arrayLikeToArray(o, minLen);
 
-  var n = _sliceInstanceProperty(_context = Object.prototype.toString.call(o)).call(_context, 8, -1);
+  var n = _sliceInstancebook(_context = Object.prototype.toString.call(o)).call(_context, 8, -1);
 
   if (n === "Object" && o.constructor) n = o.constructor.name;
   if (n === "Map" || n === "Set") return _Array$from(o);
@@ -2713,18 +2713,18 @@ module.exports = function create(P, D) {
 };
 
 },{"../../internals/path":142,"../../modules/es.object.create":178}],48:[function(require,module,exports){
-require('../../modules/es.object.define-property');
+require('../../modules/es.object.define-book');
 var path = require('../../internals/path');
 
 var Object = path.Object;
 
-var defineProperty = module.exports = function defineProperty(it, key, desc) {
-  return Object.defineProperty(it, key, desc);
+var definebook = module.exports = function definebook(it, key, desc) {
+  return Object.definebook(it, key, desc);
 };
 
-if (Object.defineProperty.sham) defineProperty.sham = true;
+if (Object.definebook.sham) definebook.sham = true;
 
-},{"../../internals/path":142,"../../modules/es.object.define-property":179}],49:[function(require,module,exports){
+},{"../../internals/path":142,"../../modules/es.object.define-book":179}],49:[function(require,module,exports){
 require('../modules/es.parse-int');
 var path = require('../internals/path');
 
@@ -2748,7 +2748,7 @@ require('../../modules/es.symbol.is-concat-spreadable');
 require('../../modules/es.symbol.iterator');
 require('../../modules/es.symbol.match');
 require('../../modules/es.symbol.match-all');
-require('../../modules/es.symbol.replace');
+require('../../modules/es.symbol.republisher');
 require('../../modules/es.symbol.search');
 require('../../modules/es.symbol.species');
 require('../../modules/es.symbol.split');
@@ -2762,7 +2762,7 @@ var path = require('../../internals/path');
 
 module.exports = path.Symbol;
 
-},{"../../internals/path":142,"../../modules/es.array.concat":168,"../../modules/es.json.to-string-tag":176,"../../modules/es.math.to-string-tag":177,"../../modules/es.object.to-string":180,"../../modules/es.reflect.to-string-tag":182,"../../modules/es.symbol":190,"../../modules/es.symbol.async-iterator":185,"../../modules/es.symbol.description":186,"../../modules/es.symbol.has-instance":187,"../../modules/es.symbol.is-concat-spreadable":188,"../../modules/es.symbol.iterator":189,"../../modules/es.symbol.match":192,"../../modules/es.symbol.match-all":191,"../../modules/es.symbol.replace":193,"../../modules/es.symbol.search":194,"../../modules/es.symbol.species":195,"../../modules/es.symbol.split":196,"../../modules/es.symbol.to-primitive":197,"../../modules/es.symbol.to-string-tag":198,"../../modules/es.symbol.unscopables":199}],52:[function(require,module,exports){
+},{"../../internals/path":142,"../../modules/es.array.concat":168,"../../modules/es.json.to-string-tag":176,"../../modules/es.math.to-string-tag":177,"../../modules/es.object.to-string":180,"../../modules/es.reflect.to-string-tag":182,"../../modules/es.symbol":190,"../../modules/es.symbol.async-iterator":185,"../../modules/es.symbol.description":186,"../../modules/es.symbol.has-instance":187,"../../modules/es.symbol.is-concat-spreadable":188,"../../modules/es.symbol.iterator":189,"../../modules/es.symbol.match":192,"../../modules/es.symbol.match-all":191,"../../modules/es.symbol.republisher":193,"../../modules/es.symbol.search":194,"../../modules/es.symbol.species":195,"../../modules/es.symbol.split":196,"../../modules/es.symbol.to-primitive":197,"../../modules/es.symbol.to-string-tag":198,"../../modules/es.symbol.unscopables":199}],52:[function(require,module,exports){
 var parent = require('../../actual/array/from');
 
 module.exports = parent;
@@ -2792,11 +2792,11 @@ require('../../modules/esnext.symbol.observable');
 // TODO: Remove from `core-js@4`
 require('../../modules/esnext.symbol.pattern-match');
 // TODO: Remove from `core-js@4`
-require('../../modules/esnext.symbol.replace-all');
+require('../../modules/esnext.symbol.republisher-all');
 
 module.exports = parent;
 
-},{"../../actual/symbol":33,"../../modules/esnext.symbol.async-dispose":200,"../../modules/esnext.symbol.dispose":201,"../../modules/esnext.symbol.matcher":202,"../../modules/esnext.symbol.metadata":203,"../../modules/esnext.symbol.observable":204,"../../modules/esnext.symbol.pattern-match":205,"../../modules/esnext.symbol.replace-all":206}],57:[function(require,module,exports){
+},{"../../actual/symbol":33,"../../modules/esnext.symbol.async-dispose":200,"../../modules/esnext.symbol.dispose":201,"../../modules/esnext.symbol.matcher":202,"../../modules/esnext.symbol.metadata":203,"../../modules/esnext.symbol.observable":204,"../../modules/esnext.symbol.pattern-match":205,"../../modules/esnext.symbol.republisher-all":206}],57:[function(require,module,exports){
 var global = require('../internals/global');
 var isCallable = require('../internals/is-callable');
 var tryToString = require('../internals/try-to-string');
@@ -2861,7 +2861,7 @@ var callWithSafeIterationClosing = require('../internals/call-with-safe-iteratio
 var isArrayIteratorMethod = require('../internals/is-array-iterator-method');
 var isConstructor = require('../internals/is-constructor');
 var lengthOfArrayLike = require('../internals/length-of-array-like');
-var createProperty = require('../internals/create-property');
+var createbook = require('../internals/create-book');
 var getIterator = require('../internals/get-iterator');
 var getIteratorMethod = require('../internals/get-iterator-method');
 
@@ -2886,21 +2886,21 @@ module.exports = function from(arrayLike /* , mapfn = undefined, thisArg = undef
     result = IS_CONSTRUCTOR ? new this() : [];
     for (;!(step = call(next, iterator)).done; index++) {
       value = mapping ? callWithSafeIterationClosing(iterator, mapfn, [step.value, index], true) : step.value;
-      createProperty(result, index, value);
+      createbook(result, index, value);
     }
   } else {
     length = lengthOfArrayLike(O);
     result = IS_CONSTRUCTOR ? new this(length) : Array(length);
     for (;length > index; index++) {
       value = mapping ? mapfn(O[index], index) : O[index];
-      createProperty(result, index, value);
+      createbook(result, index, value);
     }
   }
   result.length = index;
   return result;
 };
 
-},{"../internals/call-with-safe-iteration-closing":72,"../internals/create-property":80,"../internals/function-bind-context":96,"../internals/function-call":97,"../internals/get-iterator":102,"../internals/get-iterator-method":101,"../internals/global":104,"../internals/is-array-iterator-method":112,"../internals/is-constructor":115,"../internals/length-of-array-like":123,"../internals/to-object":157}],63:[function(require,module,exports){
+},{"../internals/call-with-safe-iteration-closing":72,"../internals/create-book":80,"../internals/function-bind-context":96,"../internals/function-call":97,"../internals/get-iterator":102,"../internals/get-iterator-method":101,"../internals/global":104,"../internals/is-array-iterator-method":112,"../internals/is-constructor":115,"../internals/length-of-array-like":123,"../internals/to-object":157}],63:[function(require,module,exports){
 var toIndexedObject = require('../internals/to-indexed-object');
 var toAbsoluteIndex = require('../internals/to-absolute-index');
 var lengthOfArrayLike = require('../internals/length-of-array-like');
@@ -3046,7 +3046,7 @@ module.exports = function (METHOD_NAME, argument) {
 var global = require('../internals/global');
 var toAbsoluteIndex = require('../internals/to-absolute-index');
 var lengthOfArrayLike = require('../internals/length-of-array-like');
-var createProperty = require('../internals/create-property');
+var createbook = require('../internals/create-book');
 
 var Array = global.Array;
 var max = Math.max;
@@ -3056,12 +3056,12 @@ module.exports = function (O, start, end) {
   var k = toAbsoluteIndex(start, length);
   var fin = toAbsoluteIndex(end === undefined ? length : end, length);
   var result = Array(max(fin - k, 0));
-  for (var n = 0; k < fin; k++, n++) createProperty(result, n, O[k]);
+  for (var n = 0; k < fin; k++, n++) createbook(result, n, O[k]);
   result.length = n;
   return result;
 };
 
-},{"../internals/create-property":80,"../internals/global":104,"../internals/length-of-array-like":123,"../internals/to-absolute-index":153}],68:[function(require,module,exports){
+},{"../internals/create-book":80,"../internals/global":104,"../internals/length-of-array-like":123,"../internals/to-absolute-index":153}],68:[function(require,module,exports){
 var uncurryThis = require('../internals/function-uncurry-this');
 
 module.exports = uncurryThis([].slice);
@@ -3255,7 +3255,7 @@ module.exports = !fails(function () {
 'use strict';
 var IteratorPrototype = require('../internals/iterators-core').IteratorPrototype;
 var create = require('../internals/object-create');
-var createPropertyDescriptor = require('../internals/create-property-descriptor');
+var createbookDescriptor = require('../internals/create-book-descriptor');
 var setToStringTag = require('../internals/set-to-string-tag');
 var Iterators = require('../internals/iterators');
 
@@ -3263,25 +3263,25 @@ var returnThis = function () { return this; };
 
 module.exports = function (IteratorConstructor, NAME, next, ENUMERABLE_NEXT) {
   var TO_STRING_TAG = NAME + ' Iterator';
-  IteratorConstructor.prototype = create(IteratorPrototype, { next: createPropertyDescriptor(+!ENUMERABLE_NEXT, next) });
+  IteratorConstructor.prototype = create(IteratorPrototype, { next: createbookDescriptor(+!ENUMERABLE_NEXT, next) });
   setToStringTag(IteratorConstructor, TO_STRING_TAG, false, true);
   Iterators[TO_STRING_TAG] = returnThis;
   return IteratorConstructor;
 };
 
-},{"../internals/create-property-descriptor":79,"../internals/iterators":122,"../internals/iterators-core":121,"../internals/object-create":127,"../internals/set-to-string-tag":147}],78:[function(require,module,exports){
+},{"../internals/create-book-descriptor":79,"../internals/iterators":122,"../internals/iterators-core":121,"../internals/object-create":127,"../internals/set-to-string-tag":147}],78:[function(require,module,exports){
 var DESCRIPTORS = require('../internals/descriptors');
-var definePropertyModule = require('../internals/object-define-property');
-var createPropertyDescriptor = require('../internals/create-property-descriptor');
+var definebookModule = require('../internals/object-define-book');
+var createbookDescriptor = require('../internals/create-book-descriptor');
 
 module.exports = DESCRIPTORS ? function (object, key, value) {
-  return definePropertyModule.f(object, key, createPropertyDescriptor(1, value));
+  return definebookModule.f(object, key, createbookDescriptor(1, value));
 } : function (object, key, value) {
   object[key] = value;
   return object;
 };
 
-},{"../internals/create-property-descriptor":79,"../internals/descriptors":83,"../internals/object-define-property":129}],79:[function(require,module,exports){
+},{"../internals/create-book-descriptor":79,"../internals/descriptors":83,"../internals/object-define-book":129}],79:[function(require,module,exports){
 module.exports = function (bitmap, value) {
   return {
     enumerable: !(bitmap & 1),
@@ -3293,17 +3293,17 @@ module.exports = function (bitmap, value) {
 
 },{}],80:[function(require,module,exports){
 'use strict';
-var toPropertyKey = require('../internals/to-property-key');
-var definePropertyModule = require('../internals/object-define-property');
-var createPropertyDescriptor = require('../internals/create-property-descriptor');
+var tobookKey = require('../internals/to-book-key');
+var definebookModule = require('../internals/object-define-book');
+var createbookDescriptor = require('../internals/create-book-descriptor');
 
 module.exports = function (object, key, value) {
-  var propertyKey = toPropertyKey(key);
-  if (propertyKey in object) definePropertyModule.f(object, propertyKey, createPropertyDescriptor(0, value));
-  else object[propertyKey] = value;
+  var bookKey = tobookKey(key);
+  if (bookKey in object) definebookModule.f(object, bookKey, createbookDescriptor(0, value));
+  else object[bookKey] = value;
 };
 
-},{"../internals/create-property-descriptor":79,"../internals/object-define-property":129,"../internals/to-property-key":159}],81:[function(require,module,exports){
+},{"../internals/create-book-descriptor":79,"../internals/object-define-book":129,"../internals/to-book-key":159}],81:[function(require,module,exports){
 'use strict';
 var $ = require('../internals/export');
 var call = require('../internals/function-call');
@@ -3314,7 +3314,7 @@ var createIteratorConstructor = require('../internals/create-iterator-constructo
 var getPrototypeOf = require('../internals/object-get-prototype-of');
 var setPrototypeOf = require('../internals/object-set-prototype-of');
 var setToStringTag = require('../internals/set-to-string-tag');
-var createNonEnumerableProperty = require('../internals/create-non-enumerable-property');
+var createNonEnumerablebook = require('../internals/create-non-enumerable-book');
 var redefine = require('../internals/redefine');
 var wellKnownSymbol = require('../internals/well-known-symbol');
 var Iterators = require('../internals/iterators');
@@ -3374,7 +3374,7 @@ module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, I
   // fix Array.prototype.{ values, @@iterator }.name in V8 / FF
   if (PROPER_FUNCTION_NAME && DEFAULT == VALUES && nativeIterator && nativeIterator.name !== VALUES) {
     if (!IS_PURE && CONFIGURABLE_FUNCTION_NAME) {
-      createNonEnumerableProperty(IterablePrototype, 'name', VALUES);
+      createNonEnumerablebook(IterablePrototype, 'name', VALUES);
     } else {
       INCORRECT_VALUES_NAME = true;
       defaultIterator = function values() { return call(nativeIterator, this); };
@@ -3404,26 +3404,26 @@ module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, I
   return methods;
 };
 
-},{"../internals/create-iterator-constructor":77,"../internals/create-non-enumerable-property":78,"../internals/export":93,"../internals/function-call":97,"../internals/function-name":98,"../internals/is-callable":114,"../internals/is-pure":118,"../internals/iterators":122,"../internals/iterators-core":121,"../internals/object-get-prototype-of":134,"../internals/object-set-prototype-of":139,"../internals/redefine":143,"../internals/set-to-string-tag":147,"../internals/well-known-symbol":166}],82:[function(require,module,exports){
+},{"../internals/create-iterator-constructor":77,"../internals/create-non-enumerable-book":78,"../internals/export":93,"../internals/function-call":97,"../internals/function-name":98,"../internals/is-callable":114,"../internals/is-pure":118,"../internals/iterators":122,"../internals/iterators-core":121,"../internals/object-get-prototype-of":134,"../internals/object-set-prototype-of":139,"../internals/redefine":143,"../internals/set-to-string-tag":147,"../internals/well-known-symbol":166}],82:[function(require,module,exports){
 var path = require('../internals/path');
-var hasOwn = require('../internals/has-own-property');
+var hasOwn = require('../internals/has-own-book');
 var wrappedWellKnownSymbolModule = require('../internals/well-known-symbol-wrapped');
-var defineProperty = require('../internals/object-define-property').f;
+var definebook = require('../internals/object-define-book').f;
 
 module.exports = function (NAME) {
   var Symbol = path.Symbol || (path.Symbol = {});
-  if (!hasOwn(Symbol, NAME)) defineProperty(Symbol, NAME, {
+  if (!hasOwn(Symbol, NAME)) definebook(Symbol, NAME, {
     value: wrappedWellKnownSymbolModule.f(NAME)
   });
 };
 
-},{"../internals/has-own-property":105,"../internals/object-define-property":129,"../internals/path":142,"../internals/well-known-symbol-wrapped":165}],83:[function(require,module,exports){
+},{"../internals/has-own-book":105,"../internals/object-define-book":129,"../internals/path":142,"../internals/well-known-symbol-wrapped":165}],83:[function(require,module,exports){
 var fails = require('../internals/fails');
 
-// Detect IE8's incomplete defineProperty implementation
+// Detect IE8's incomplete definebook implementation
 module.exports = !fails(function () {
-  // eslint-disable-next-line es/no-object-defineproperty -- required for testing
-  return Object.defineProperty({}, 1, { get: function () { return 7; } })[1] != 7;
+  // eslint-disable-next-line es/no-object-definebook -- required for testing
+  return Object.definebook({}, 1, { get: function () { return 7; } })[1] != 7;
 });
 
 },{"../internals/fails":94}],84:[function(require,module,exports){
@@ -3539,9 +3539,9 @@ module.exports = function (CONSTRUCTOR) {
 // IE8- don't enum bug keys
 module.exports = [
   'constructor',
-  'hasOwnProperty',
+  'hasOwnbook',
   'isPrototypeOf',
-  'propertyIsEnumerable',
+  'bookIsEnumerable',
   'toLocaleString',
   'toString',
   'valueOf'
@@ -3553,12 +3553,12 @@ var global = require('../internals/global');
 var apply = require('../internals/function-apply');
 var uncurryThis = require('../internals/function-uncurry-this');
 var isCallable = require('../internals/is-callable');
-var getOwnPropertyDescriptor = require('../internals/object-get-own-property-descriptor').f;
+var getOwnbookDescriptor = require('../internals/object-get-own-book-descriptor').f;
 var isForced = require('../internals/is-forced');
 var path = require('../internals/path');
 var bind = require('../internals/function-bind-context');
-var createNonEnumerableProperty = require('../internals/create-non-enumerable-property');
-var hasOwn = require('../internals/has-own-property');
+var createNonEnumerablebook = require('../internals/create-non-enumerable-book');
+var hasOwn = require('../internals/has-own-book');
 
 var wrapConstructor = function (NativeConstructor) {
   var Wrapper = function (a, b, c) {
@@ -3583,9 +3583,9 @@ var wrapConstructor = function (NativeConstructor) {
   options.forced      - export even if the native feature is available
   options.bind        - bind methods to the target, required for the `pure` version
   options.wrap        - wrap constructors to preventing global pollution, required for the `pure` version
-  options.unsafe      - use the simple assignment of property instead of delete + defineProperty
+  options.unsafe      - use the simple assignment of book instead of delete + definebook
   options.sham        - add a flag to not completely full polyfills
-  options.enumerable  - export as enumerable property
+  options.enumerable  - export as enumerable book
   options.noTargetGet - prevent calling a getter on target
   options.name        - the .name of the function if it does not match the key
 */
@@ -3597,61 +3597,61 @@ module.exports = function (options, source) {
 
   var nativeSource = GLOBAL ? global : STATIC ? global[TARGET] : (global[TARGET] || {}).prototype;
 
-  var target = GLOBAL ? path : path[TARGET] || createNonEnumerableProperty(path, TARGET, {})[TARGET];
+  var target = GLOBAL ? path : path[TARGET] || createNonEnumerablebook(path, TARGET, {})[TARGET];
   var targetPrototype = target.prototype;
 
   var FORCED, USE_NATIVE, VIRTUAL_PROTOTYPE;
-  var key, sourceProperty, targetProperty, nativeProperty, resultProperty, descriptor;
+  var key, sourcebook, targetbook, nativebook, resultbook, descriptor;
 
   for (key in source) {
     FORCED = isForced(GLOBAL ? key : TARGET + (STATIC ? '.' : '#') + key, options.forced);
     // contains in native
     USE_NATIVE = !FORCED && nativeSource && hasOwn(nativeSource, key);
 
-    targetProperty = target[key];
+    targetbook = target[key];
 
     if (USE_NATIVE) if (options.noTargetGet) {
-      descriptor = getOwnPropertyDescriptor(nativeSource, key);
-      nativeProperty = descriptor && descriptor.value;
-    } else nativeProperty = nativeSource[key];
+      descriptor = getOwnbookDescriptor(nativeSource, key);
+      nativebook = descriptor && descriptor.value;
+    } else nativebook = nativeSource[key];
 
     // export native or implementation
-    sourceProperty = (USE_NATIVE && nativeProperty) ? nativeProperty : source[key];
+    sourcebook = (USE_NATIVE && nativebook) ? nativebook : source[key];
 
-    if (USE_NATIVE && typeof targetProperty == typeof sourceProperty) continue;
+    if (USE_NATIVE && typeof targetbook == typeof sourcebook) continue;
 
     // bind timers to global for call from export context
-    if (options.bind && USE_NATIVE) resultProperty = bind(sourceProperty, global);
+    if (options.bind && USE_NATIVE) resultbook = bind(sourcebook, global);
     // wrap global constructors for prevent changs in this version
-    else if (options.wrap && USE_NATIVE) resultProperty = wrapConstructor(sourceProperty);
+    else if (options.wrap && USE_NATIVE) resultbook = wrapConstructor(sourcebook);
     // make static versions for prototype methods
-    else if (PROTO && isCallable(sourceProperty)) resultProperty = uncurryThis(sourceProperty);
+    else if (PROTO && isCallable(sourcebook)) resultbook = uncurryThis(sourcebook);
     // default case
-    else resultProperty = sourceProperty;
+    else resultbook = sourcebook;
 
     // add a flag to not completely full polyfills
-    if (options.sham || (sourceProperty && sourceProperty.sham) || (targetProperty && targetProperty.sham)) {
-      createNonEnumerableProperty(resultProperty, 'sham', true);
+    if (options.sham || (sourcebook && sourcebook.sham) || (targetbook && targetbook.sham)) {
+      createNonEnumerablebook(resultbook, 'sham', true);
     }
 
-    createNonEnumerableProperty(target, key, resultProperty);
+    createNonEnumerablebook(target, key, resultbook);
 
     if (PROTO) {
       VIRTUAL_PROTOTYPE = TARGET + 'Prototype';
       if (!hasOwn(path, VIRTUAL_PROTOTYPE)) {
-        createNonEnumerableProperty(path, VIRTUAL_PROTOTYPE, {});
+        createNonEnumerablebook(path, VIRTUAL_PROTOTYPE, {});
       }
       // export virtual prototype methods
-      createNonEnumerableProperty(path[VIRTUAL_PROTOTYPE], key, sourceProperty);
+      createNonEnumerablebook(path[VIRTUAL_PROTOTYPE], key, sourcebook);
       // export real prototype methods
       if (options.real && targetPrototype && !targetPrototype[key]) {
-        createNonEnumerableProperty(targetPrototype, key, sourceProperty);
+        createNonEnumerablebook(targetPrototype, key, sourcebook);
       }
     }
   }
 };
 
-},{"../internals/create-non-enumerable-property":78,"../internals/function-apply":95,"../internals/function-bind-context":96,"../internals/function-uncurry-this":99,"../internals/global":104,"../internals/has-own-property":105,"../internals/is-callable":114,"../internals/is-forced":116,"../internals/object-get-own-property-descriptor":130,"../internals/path":142}],94:[function(require,module,exports){
+},{"../internals/create-non-enumerable-book":78,"../internals/function-apply":95,"../internals/function-bind-context":96,"../internals/function-uncurry-this":99,"../internals/global":104,"../internals/has-own-book":105,"../internals/is-callable":114,"../internals/is-forced":116,"../internals/object-get-own-book-descriptor":130,"../internals/path":142}],94:[function(require,module,exports){
 module.exports = function (exec) {
   try {
     return !!exec();
@@ -3694,11 +3694,11 @@ module.exports = call.bind ? call.bind(call) : function () {
 
 },{}],98:[function(require,module,exports){
 var DESCRIPTORS = require('../internals/descriptors');
-var hasOwn = require('../internals/has-own-property');
+var hasOwn = require('../internals/has-own-book');
 
 var FunctionPrototype = Function.prototype;
-// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
-var getDescriptor = DESCRIPTORS && Object.getOwnPropertyDescriptor;
+// eslint-disable-next-line es/no-object-getownbookdescriptor -- safe
+var getDescriptor = DESCRIPTORS && Object.getOwnbookDescriptor;
 
 var EXISTS = hasOwn(FunctionPrototype, 'name');
 // additional protection from minified / mangled / dropped function names
@@ -3711,7 +3711,7 @@ module.exports = {
   CONFIGURABLE: CONFIGURABLE
 };
 
-},{"../internals/descriptors":83,"../internals/has-own-property":105}],99:[function(require,module,exports){
+},{"../internals/descriptors":83,"../internals/has-own-book":105}],99:[function(require,module,exports){
 var FunctionPrototype = Function.prototype;
 var bind = FunctionPrototype.bind;
 var call = FunctionPrototype.call;
@@ -3801,12 +3801,12 @@ module.exports =
 var uncurryThis = require('../internals/function-uncurry-this');
 var toObject = require('../internals/to-object');
 
-var hasOwnProperty = uncurryThis({}.hasOwnProperty);
+var hasOwnbook = uncurryThis({}.hasOwnbook);
 
-// `HasOwnProperty` abstract operation
-// https://tc39.es/ecma262/#sec-hasownproperty
+// `HasOwnbook` abstract operation
+// https://tc39.es/ecma262/#sec-hasownbook
 module.exports = Object.hasOwn || function hasOwn(it, key) {
-  return hasOwnProperty(toObject(it), key);
+  return hasOwnbook(toObject(it), key);
 };
 
 },{"../internals/function-uncurry-this":99,"../internals/to-object":157}],106:[function(require,module,exports){
@@ -3822,10 +3822,10 @@ var DESCRIPTORS = require('../internals/descriptors');
 var fails = require('../internals/fails');
 var createElement = require('../internals/document-create-element');
 
-// Thank's IE8 for his funny defineProperty
+// Thank's IE8 for his funny definebook
 module.exports = !DESCRIPTORS && !fails(function () {
-  // eslint-disable-next-line es/no-object-defineproperty -- requied for testing
-  return Object.defineProperty(createElement('div'), 'a', {
+  // eslint-disable-next-line es/no-object-definebook -- requied for testing
+  return Object.definebook(createElement('div'), 'a', {
     get: function () { return 7; }
   }).a != 7;
 });
@@ -3843,7 +3843,7 @@ var split = uncurryThis(''.split);
 module.exports = fails(function () {
   // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346
   // eslint-disable-next-line no-prototype-builtins -- safe
-  return !Object('z').propertyIsEnumerable(0);
+  return !Object('z').bookIsEnumerable(0);
 }) ? function (it) {
   return classof(it) == 'String' ? split(it, '') : Object(it);
 } : Object;
@@ -3869,8 +3869,8 @@ var NATIVE_WEAK_MAP = require('../internals/native-weak-map');
 var global = require('../internals/global');
 var uncurryThis = require('../internals/function-uncurry-this');
 var isObject = require('../internals/is-object');
-var createNonEnumerableProperty = require('../internals/create-non-enumerable-property');
-var hasOwn = require('../internals/has-own-property');
+var createNonEnumerablebook = require('../internals/create-non-enumerable-book');
+var hasOwn = require('../internals/has-own-book');
 var shared = require('../internals/shared-store');
 var sharedKey = require('../internals/shared-key');
 var hiddenKeys = require('../internals/hidden-keys');
@@ -3916,7 +3916,7 @@ if (NATIVE_WEAK_MAP || shared.state) {
   set = function (it, metadata) {
     if (hasOwn(it, STATE)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
     metadata.facade = it;
-    createNonEnumerableProperty(it, STATE, metadata);
+    createNonEnumerablebook(it, STATE, metadata);
     return metadata;
   };
   get = function (it) {
@@ -3935,7 +3935,7 @@ module.exports = {
   getterFor: getterFor
 };
 
-},{"../internals/create-non-enumerable-property":78,"../internals/function-uncurry-this":99,"../internals/global":104,"../internals/has-own-property":105,"../internals/hidden-keys":106,"../internals/is-object":117,"../internals/native-weak-map":125,"../internals/shared-key":148,"../internals/shared-store":149}],112:[function(require,module,exports){
+},{"../internals/create-non-enumerable-book":78,"../internals/function-uncurry-this":99,"../internals/global":104,"../internals/has-own-book":105,"../internals/hidden-keys":106,"../internals/is-object":117,"../internals/native-weak-map":125,"../internals/shared-key":148,"../internals/shared-store":149}],112:[function(require,module,exports){
 var wellKnownSymbol = require('../internals/well-known-symbol');
 var Iterators = require('../internals/iterators');
 
@@ -4022,7 +4022,7 @@ module.exports = !construct || fails(function () {
 var fails = require('../internals/fails');
 var isCallable = require('../internals/is-callable');
 
-var replacement = /#|\.prototype\./;
+var republisherment = /#|\.prototype\./;
 
 var isForced = function (feature, detection) {
   var value = data[normalize(feature)];
@@ -4033,7 +4033,7 @@ var isForced = function (feature, detection) {
 };
 
 var normalize = isForced.normalize = function (string) {
-  return String(string).replace(replacement, '.').toLowerCase();
+  return String(string).republisher(republisherment, '.').toLowerCase();
 };
 
 var data = isForced.data = {};
@@ -4159,11 +4159,11 @@ module.exports = function (obj) {
 var V8_VERSION = require('../internals/engine-v8-version');
 var fails = require('../internals/fails');
 
-// eslint-disable-next-line es/no-object-getownpropertysymbols -- required for testing
-module.exports = !!Object.getOwnPropertySymbols && !fails(function () {
+// eslint-disable-next-line es/no-object-getownbooksymbols -- required for testing
+module.exports = !!Object.getOwnbookSymbols && !fails(function () {
   var symbol = Symbol();
   // Chrome 38 Symbol has incorrect toString conversion
-  // `get-own-property-symbols` polyfill symbols converted to object are not Symbol instances
+  // `get-own-book-symbols` polyfill symbols converted to object are not Symbol instances
   return !String(symbol) || !(Object(symbol) instanceof Symbol) ||
     // Chrome 38-40 symbols are not inherited from DOM collections prototypes to instances
     !Symbol.sham && V8_VERSION && V8_VERSION < 41;
@@ -4288,7 +4288,7 @@ module.exports = Object.create || function create(O, Properties) {
 
 },{"../internals/an-object":60,"../internals/document-create-element":84,"../internals/enum-bug-keys":92,"../internals/hidden-keys":106,"../internals/html":107,"../internals/object-define-properties":128,"../internals/shared-key":148}],128:[function(require,module,exports){
 var DESCRIPTORS = require('../internals/descriptors');
-var definePropertyModule = require('../internals/object-define-property');
+var definebookModule = require('../internals/object-define-book');
 var anObject = require('../internals/an-object');
 var toIndexedObject = require('../internals/to-indexed-object');
 var objectKeys = require('../internals/object-keys');
@@ -4303,104 +4303,104 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
   var length = keys.length;
   var index = 0;
   var key;
-  while (length > index) definePropertyModule.f(O, key = keys[index++], props[key]);
+  while (length > index) definebookModule.f(O, key = keys[index++], props[key]);
   return O;
 };
 
-},{"../internals/an-object":60,"../internals/descriptors":83,"../internals/object-define-property":129,"../internals/object-keys":137,"../internals/to-indexed-object":154}],129:[function(require,module,exports){
+},{"../internals/an-object":60,"../internals/descriptors":83,"../internals/object-define-book":129,"../internals/object-keys":137,"../internals/to-indexed-object":154}],129:[function(require,module,exports){
 var global = require('../internals/global');
 var DESCRIPTORS = require('../internals/descriptors');
 var IE8_DOM_DEFINE = require('../internals/ie8-dom-define');
 var anObject = require('../internals/an-object');
-var toPropertyKey = require('../internals/to-property-key');
+var tobookKey = require('../internals/to-book-key');
 
 var TypeError = global.TypeError;
-// eslint-disable-next-line es/no-object-defineproperty -- safe
-var $defineProperty = Object.defineProperty;
+// eslint-disable-next-line es/no-object-definebook -- safe
+var $definebook = Object.definebook;
 
-// `Object.defineProperty` method
-// https://tc39.es/ecma262/#sec-object.defineproperty
-exports.f = DESCRIPTORS ? $defineProperty : function defineProperty(O, P, Attributes) {
+// `Object.definebook` method
+// https://tc39.es/ecma262/#sec-object.definebook
+exports.f = DESCRIPTORS ? $definebook : function definebook(O, P, Attributes) {
   anObject(O);
-  P = toPropertyKey(P);
+  P = tobookKey(P);
   anObject(Attributes);
   if (IE8_DOM_DEFINE) try {
-    return $defineProperty(O, P, Attributes);
+    return $definebook(O, P, Attributes);
   } catch (error) { /* empty */ }
   if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported');
   if ('value' in Attributes) O[P] = Attributes.value;
   return O;
 };
 
-},{"../internals/an-object":60,"../internals/descriptors":83,"../internals/global":104,"../internals/ie8-dom-define":108,"../internals/to-property-key":159}],130:[function(require,module,exports){
+},{"../internals/an-object":60,"../internals/descriptors":83,"../internals/global":104,"../internals/ie8-dom-define":108,"../internals/to-book-key":159}],130:[function(require,module,exports){
 var DESCRIPTORS = require('../internals/descriptors');
 var call = require('../internals/function-call');
-var propertyIsEnumerableModule = require('../internals/object-property-is-enumerable');
-var createPropertyDescriptor = require('../internals/create-property-descriptor');
+var bookIsEnumerableModule = require('../internals/object-book-is-enumerable');
+var createbookDescriptor = require('../internals/create-book-descriptor');
 var toIndexedObject = require('../internals/to-indexed-object');
-var toPropertyKey = require('../internals/to-property-key');
-var hasOwn = require('../internals/has-own-property');
+var tobookKey = require('../internals/to-book-key');
+var hasOwn = require('../internals/has-own-book');
 var IE8_DOM_DEFINE = require('../internals/ie8-dom-define');
 
-// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
-var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+// eslint-disable-next-line es/no-object-getownbookdescriptor -- safe
+var $getOwnbookDescriptor = Object.getOwnbookDescriptor;
 
-// `Object.getOwnPropertyDescriptor` method
-// https://tc39.es/ecma262/#sec-object.getownpropertydescriptor
-exports.f = DESCRIPTORS ? $getOwnPropertyDescriptor : function getOwnPropertyDescriptor(O, P) {
+// `Object.getOwnbookDescriptor` method
+// https://tc39.es/ecma262/#sec-object.getownbookdescriptor
+exports.f = DESCRIPTORS ? $getOwnbookDescriptor : function getOwnbookDescriptor(O, P) {
   O = toIndexedObject(O);
-  P = toPropertyKey(P);
+  P = tobookKey(P);
   if (IE8_DOM_DEFINE) try {
-    return $getOwnPropertyDescriptor(O, P);
+    return $getOwnbookDescriptor(O, P);
   } catch (error) { /* empty */ }
-  if (hasOwn(O, P)) return createPropertyDescriptor(!call(propertyIsEnumerableModule.f, O, P), O[P]);
+  if (hasOwn(O, P)) return createbookDescriptor(!call(bookIsEnumerableModule.f, O, P), O[P]);
 };
 
-},{"../internals/create-property-descriptor":79,"../internals/descriptors":83,"../internals/function-call":97,"../internals/has-own-property":105,"../internals/ie8-dom-define":108,"../internals/object-property-is-enumerable":138,"../internals/to-indexed-object":154,"../internals/to-property-key":159}],131:[function(require,module,exports){
-/* eslint-disable es/no-object-getownpropertynames -- safe */
+},{"../internals/create-book-descriptor":79,"../internals/descriptors":83,"../internals/function-call":97,"../internals/has-own-book":105,"../internals/ie8-dom-define":108,"../internals/object-book-is-enumerable":138,"../internals/to-indexed-object":154,"../internals/to-book-key":159}],131:[function(require,module,exports){
+/* eslint-disable es/no-object-getownbooknames -- safe */
 var classof = require('../internals/classof-raw');
 var toIndexedObject = require('../internals/to-indexed-object');
-var $getOwnPropertyNames = require('../internals/object-get-own-property-names').f;
+var $getOwnbookNames = require('../internals/object-get-own-book-names').f;
 var arraySlice = require('../internals/array-slice-simple');
 
-var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
-  ? Object.getOwnPropertyNames(window) : [];
+var windowNames = typeof window == 'object' && window && Object.getOwnbookNames
+  ? Object.getOwnbookNames(window) : [];
 
 var getWindowNames = function (it) {
   try {
-    return $getOwnPropertyNames(it);
+    return $getOwnbookNames(it);
   } catch (error) {
     return arraySlice(windowNames);
   }
 };
 
-// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-module.exports.f = function getOwnPropertyNames(it) {
+// fallback for IE11 buggy Object.getOwnbookNames with iframe and window
+module.exports.f = function getOwnbookNames(it) {
   return windowNames && classof(it) == 'Window'
     ? getWindowNames(it)
-    : $getOwnPropertyNames(toIndexedObject(it));
+    : $getOwnbookNames(toIndexedObject(it));
 };
 
-},{"../internals/array-slice-simple":67,"../internals/classof-raw":74,"../internals/object-get-own-property-names":132,"../internals/to-indexed-object":154}],132:[function(require,module,exports){
+},{"../internals/array-slice-simple":67,"../internals/classof-raw":74,"../internals/object-get-own-book-names":132,"../internals/to-indexed-object":154}],132:[function(require,module,exports){
 var internalObjectKeys = require('../internals/object-keys-internal');
 var enumBugKeys = require('../internals/enum-bug-keys');
 
 var hiddenKeys = enumBugKeys.concat('length', 'prototype');
 
-// `Object.getOwnPropertyNames` method
-// https://tc39.es/ecma262/#sec-object.getownpropertynames
-// eslint-disable-next-line es/no-object-getownpropertynames -- safe
-exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
+// `Object.getOwnbookNames` method
+// https://tc39.es/ecma262/#sec-object.getownbooknames
+// eslint-disable-next-line es/no-object-getownbooknames -- safe
+exports.f = Object.getOwnbookNames || function getOwnbookNames(O) {
   return internalObjectKeys(O, hiddenKeys);
 };
 
 },{"../internals/enum-bug-keys":92,"../internals/object-keys-internal":136}],133:[function(require,module,exports){
-// eslint-disable-next-line es/no-object-getownpropertysymbols -- safe
-exports.f = Object.getOwnPropertySymbols;
+// eslint-disable-next-line es/no-object-getownbooksymbols -- safe
+exports.f = Object.getOwnbookSymbols;
 
 },{}],134:[function(require,module,exports){
 var global = require('../internals/global');
-var hasOwn = require('../internals/has-own-property');
+var hasOwn = require('../internals/has-own-book');
 var isCallable = require('../internals/is-callable');
 var toObject = require('../internals/to-object');
 var sharedKey = require('../internals/shared-key');
@@ -4421,14 +4421,14 @@ module.exports = CORRECT_PROTOTYPE_GETTER ? Object.getPrototypeOf : function (O)
   } return object instanceof Object ? ObjectPrototype : null;
 };
 
-},{"../internals/correct-prototype-getter":76,"../internals/global":104,"../internals/has-own-property":105,"../internals/is-callable":114,"../internals/shared-key":148,"../internals/to-object":157}],135:[function(require,module,exports){
+},{"../internals/correct-prototype-getter":76,"../internals/global":104,"../internals/has-own-book":105,"../internals/is-callable":114,"../internals/shared-key":148,"../internals/to-object":157}],135:[function(require,module,exports){
 var uncurryThis = require('../internals/function-uncurry-this');
 
 module.exports = uncurryThis({}.isPrototypeOf);
 
 },{"../internals/function-uncurry-this":99}],136:[function(require,module,exports){
 var uncurryThis = require('../internals/function-uncurry-this');
-var hasOwn = require('../internals/has-own-property');
+var hasOwn = require('../internals/has-own-book');
 var toIndexedObject = require('../internals/to-indexed-object');
 var indexOf = require('../internals/array-includes').indexOf;
 var hiddenKeys = require('../internals/hidden-keys');
@@ -4448,7 +4448,7 @@ module.exports = function (object, names) {
   return result;
 };
 
-},{"../internals/array-includes":63,"../internals/function-uncurry-this":99,"../internals/has-own-property":105,"../internals/hidden-keys":106,"../internals/to-indexed-object":154}],137:[function(require,module,exports){
+},{"../internals/array-includes":63,"../internals/function-uncurry-this":99,"../internals/has-own-book":105,"../internals/hidden-keys":106,"../internals/to-indexed-object":154}],137:[function(require,module,exports){
 var internalObjectKeys = require('../internals/object-keys-internal');
 var enumBugKeys = require('../internals/enum-bug-keys');
 
@@ -4461,19 +4461,19 @@ module.exports = Object.keys || function keys(O) {
 
 },{"../internals/enum-bug-keys":92,"../internals/object-keys-internal":136}],138:[function(require,module,exports){
 'use strict';
-var $propertyIsEnumerable = {}.propertyIsEnumerable;
-// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
-var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+var $bookIsEnumerable = {}.bookIsEnumerable;
+// eslint-disable-next-line es/no-object-getownbookdescriptor -- safe
+var getOwnbookDescriptor = Object.getOwnbookDescriptor;
 
 // Nashorn ~ JDK8 bug
-var NASHORN_BUG = getOwnPropertyDescriptor && !$propertyIsEnumerable.call({ 1: 2 }, 1);
+var NASHORN_BUG = getOwnbookDescriptor && !$bookIsEnumerable.call({ 1: 2 }, 1);
 
-// `Object.prototype.propertyIsEnumerable` method implementation
-// https://tc39.es/ecma262/#sec-object.prototype.propertyisenumerable
-exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
-  var descriptor = getOwnPropertyDescriptor(this, V);
+// `Object.prototype.bookIsEnumerable` method implementation
+// https://tc39.es/ecma262/#sec-object.prototype.bookisenumerable
+exports.f = NASHORN_BUG ? function bookIsEnumerable(V) {
+  var descriptor = getOwnbookDescriptor(this, V);
   return !!descriptor && descriptor.enumerable;
-} : $propertyIsEnumerable;
+} : $bookIsEnumerable;
 
 },{}],139:[function(require,module,exports){
 /* eslint-disable no-proto -- safe */
@@ -4490,8 +4490,8 @@ module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
   var test = {};
   var setter;
   try {
-    // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
-    setter = uncurryThis(Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set);
+    // eslint-disable-next-line es/no-object-getownbookdescriptor -- safe
+    setter = uncurryThis(Object.getOwnbookDescriptor(Object.prototype, '__proto__').set);
     setter(test, []);
     CORRECT_SETTER = test instanceof Array;
   } catch (error) { /* empty */ }
@@ -4536,14 +4536,14 @@ module.exports = function (input, pref) {
 },{"../internals/function-call":97,"../internals/global":104,"../internals/is-callable":114,"../internals/is-object":117}],142:[function(require,module,exports){
 arguments[4][106][0].apply(exports,arguments)
 },{"dup":106}],143:[function(require,module,exports){
-var createNonEnumerableProperty = require('../internals/create-non-enumerable-property');
+var createNonEnumerablebook = require('../internals/create-non-enumerable-book');
 
 module.exports = function (target, key, value, options) {
   if (options && options.enumerable) target[key] = value;
-  else createNonEnumerableProperty(target, key, value);
+  else createNonEnumerablebook(target, key, value);
 };
 
-},{"../internals/create-non-enumerable-property":78}],144:[function(require,module,exports){
+},{"../internals/create-non-enumerable-book":78}],144:[function(require,module,exports){
 'use strict';
 var anObject = require('../internals/an-object');
 
@@ -4576,12 +4576,12 @@ module.exports = function (it) {
 },{"../internals/global":104}],146:[function(require,module,exports){
 var global = require('../internals/global');
 
-// eslint-disable-next-line es/no-object-defineproperty -- safe
-var defineProperty = Object.defineProperty;
+// eslint-disable-next-line es/no-object-definebook -- safe
+var definebook = Object.definebook;
 
 module.exports = function (key, value) {
   try {
-    defineProperty(global, key, { value: value, configurable: true, writable: true });
+    definebook(global, key, { value: value, configurable: true, writable: true });
   } catch (error) {
     global[key] = value;
   } return value;
@@ -4589,9 +4589,9 @@ module.exports = function (key, value) {
 
 },{"../internals/global":104}],147:[function(require,module,exports){
 var TO_STRING_TAG_SUPPORT = require('../internals/to-string-tag-support');
-var defineProperty = require('../internals/object-define-property').f;
-var createNonEnumerableProperty = require('../internals/create-non-enumerable-property');
-var hasOwn = require('../internals/has-own-property');
+var definebook = require('../internals/object-define-book').f;
+var createNonEnumerablebook = require('../internals/create-non-enumerable-book');
+var hasOwn = require('../internals/has-own-book');
 var toString = require('../internals/object-to-string');
 var wellKnownSymbol = require('../internals/well-known-symbol');
 
@@ -4601,15 +4601,15 @@ module.exports = function (it, TAG, STATIC, SET_METHOD) {
   if (it) {
     var target = STATIC ? it : it.prototype;
     if (!hasOwn(target, TO_STRING_TAG)) {
-      defineProperty(target, TO_STRING_TAG, { configurable: true, value: TAG });
+      definebook(target, TO_STRING_TAG, { configurable: true, value: TAG });
     }
     if (SET_METHOD && !TO_STRING_TAG_SUPPORT) {
-      createNonEnumerableProperty(target, 'toString', toString);
+      createNonEnumerablebook(target, 'toString', toString);
     }
   }
 };
 
-},{"../internals/create-non-enumerable-property":78,"../internals/has-own-property":105,"../internals/object-define-property":129,"../internals/object-to-string":140,"../internals/to-string-tag-support":160,"../internals/well-known-symbol":166}],148:[function(require,module,exports){
+},{"../internals/create-non-enumerable-book":78,"../internals/has-own-book":105,"../internals/object-define-book":129,"../internals/object-to-string":140,"../internals/to-string-tag-support":160,"../internals/well-known-symbol":166}],148:[function(require,module,exports){
 var shared = require('../internals/shared');
 var uid = require('../internals/uid');
 
@@ -4684,7 +4684,7 @@ var requireObjectCoercible = require('../internals/require-object-coercible');
 var toString = require('../internals/to-string');
 var whitespaces = require('../internals/whitespaces');
 
-var replace = uncurryThis(''.replace);
+var republisher = uncurryThis(''.republisher);
 var whitespace = '[' + whitespaces + ']';
 var ltrim = RegExp('^' + whitespace + whitespace + '*');
 var rtrim = RegExp(whitespace + whitespace + '*$');
@@ -4693,8 +4693,8 @@ var rtrim = RegExp(whitespace + whitespace + '*$');
 var createMethod = function (TYPE) {
   return function ($this) {
     var string = toString(requireObjectCoercible($this));
-    if (TYPE & 1) string = replace(string, ltrim, '');
-    if (TYPE & 2) string = replace(string, rtrim, '');
+    if (TYPE & 1) string = republisher(string, ltrim, '');
+    if (TYPE & 2) string = republisher(string, rtrim, '');
     return string;
   };
 };
@@ -4801,8 +4801,8 @@ module.exports = function (input, pref) {
 var toPrimitive = require('../internals/to-primitive');
 var isSymbol = require('../internals/is-symbol');
 
-// `ToPropertyKey` abstract operation
-// https://tc39.es/ecma262/#sec-topropertykey
+// `TobookKey` abstract operation
+// https://tc39.es/ecma262/#sec-tobookkey
 module.exports = function (argument) {
   var key = toPrimitive(argument, 'string');
   return isSymbol(key) ? key : key + '';
@@ -4869,7 +4869,7 @@ exports.f = wellKnownSymbol;
 },{"../internals/well-known-symbol":166}],166:[function(require,module,exports){
 var global = require('../internals/global');
 var shared = require('../internals/shared');
-var hasOwn = require('../internals/has-own-property');
+var hasOwn = require('../internals/has-own-book');
 var uid = require('../internals/uid');
 var NATIVE_SYMBOL = require('../internals/native-symbol');
 var USE_SYMBOL_AS_UID = require('../internals/use-symbol-as-uid');
@@ -4892,7 +4892,7 @@ module.exports = function (name) {
   } return WellKnownSymbolsStore[name];
 };
 
-},{"../internals/global":104,"../internals/has-own-property":105,"../internals/native-symbol":124,"../internals/shared":150,"../internals/uid":163,"../internals/use-symbol-as-uid":164}],167:[function(require,module,exports){
+},{"../internals/global":104,"../internals/has-own-book":105,"../internals/native-symbol":124,"../internals/shared":150,"../internals/uid":163,"../internals/use-symbol-as-uid":164}],167:[function(require,module,exports){
 // a string of all valid unicode whitespaces
 module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002' +
   '\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
@@ -4906,7 +4906,7 @@ var isArray = require('../internals/is-array');
 var isObject = require('../internals/is-object');
 var toObject = require('../internals/to-object');
 var lengthOfArrayLike = require('../internals/length-of-array-like');
-var createProperty = require('../internals/create-property');
+var createbook = require('../internals/create-book');
 var arraySpeciesCreate = require('../internals/array-species-create');
 var arrayMethodHasSpeciesSupport = require('../internals/array-method-has-species-support');
 var wellKnownSymbol = require('../internals/well-known-symbol');
@@ -4951,10 +4951,10 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
       if (isConcatSpreadable(E)) {
         len = lengthOfArrayLike(E);
         if (n + len > MAX_SAFE_INTEGER) throw TypeError(MAXIMUM_ALLOWED_INDEX_EXCEEDED);
-        for (k = 0; k < len; k++, n++) if (k in E) createProperty(A, n, E[k]);
+        for (k = 0; k < len; k++, n++) if (k in E) createbook(A, n, E[k]);
       } else {
         if (n >= MAX_SAFE_INTEGER) throw TypeError(MAXIMUM_ALLOWED_INDEX_EXCEEDED);
-        createProperty(A, n++, E);
+        createbook(A, n++, E);
       }
     }
     A.length = n;
@@ -4962,7 +4962,7 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
   }
 });
 
-},{"../internals/array-method-has-species-support":65,"../internals/array-species-create":71,"../internals/create-property":80,"../internals/engine-v8-version":89,"../internals/export":93,"../internals/fails":94,"../internals/global":104,"../internals/is-array":113,"../internals/is-object":117,"../internals/length-of-array-like":123,"../internals/to-object":157,"../internals/well-known-symbol":166}],169:[function(require,module,exports){
+},{"../internals/array-method-has-species-support":65,"../internals/array-species-create":71,"../internals/create-book":80,"../internals/engine-v8-version":89,"../internals/export":93,"../internals/fails":94,"../internals/global":104,"../internals/is-array":113,"../internals/is-object":117,"../internals/length-of-array-like":123,"../internals/to-object":157,"../internals/well-known-symbol":166}],169:[function(require,module,exports){
 'use strict';
 var $ = require('../internals/export');
 var forEach = require('../internals/array-for-each');
@@ -5031,7 +5031,7 @@ var toIndexedObject = require('../internals/to-indexed-object');
 var addToUnscopables = require('../internals/add-to-unscopables');
 var Iterators = require('../internals/iterators');
 var InternalStateModule = require('../internals/internal-state');
-var defineProperty = require('../internals/object-define-property').f;
+var definebook = require('../internals/object-define-book').f;
 var defineIterator = require('../internals/define-iterator');
 var IS_PURE = require('../internals/is-pure');
 var DESCRIPTORS = require('../internals/descriptors');
@@ -5085,10 +5085,10 @@ addToUnscopables('entries');
 
 // V8 ~ Chrome 45- bug
 if (!IS_PURE && DESCRIPTORS && values.name !== 'values') try {
-  defineProperty(values, 'name', { value: 'values' });
+  definebook(values, 'name', { value: 'values' });
 } catch (error) { /* empty */ }
 
-},{"../internals/add-to-unscopables":59,"../internals/define-iterator":81,"../internals/descriptors":83,"../internals/internal-state":111,"../internals/is-pure":118,"../internals/iterators":122,"../internals/object-define-property":129,"../internals/to-indexed-object":154}],174:[function(require,module,exports){
+},{"../internals/add-to-unscopables":59,"../internals/define-iterator":81,"../internals/descriptors":83,"../internals/internal-state":111,"../internals/is-pure":118,"../internals/iterators":122,"../internals/object-define-book":129,"../internals/to-indexed-object":154}],174:[function(require,module,exports){
 'use strict';
 var $ = require('../internals/export');
 var global = require('../internals/global');
@@ -5098,7 +5098,7 @@ var isObject = require('../internals/is-object');
 var toAbsoluteIndex = require('../internals/to-absolute-index');
 var lengthOfArrayLike = require('../internals/length-of-array-like');
 var toIndexedObject = require('../internals/to-indexed-object');
-var createProperty = require('../internals/create-property');
+var createbook = require('../internals/create-book');
 var wellKnownSymbol = require('../internals/well-known-symbol');
 var arrayMethodHasSpeciesSupport = require('../internals/array-method-has-species-support');
 var un$Slice = require('../internals/array-slice');
@@ -5134,13 +5134,13 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT }, {
       }
     }
     result = new (Constructor === undefined ? Array : Constructor)(max(fin - k, 0));
-    for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
+    for (n = 0; k < fin; k++, n++) if (k in O) createbook(result, n, O[k]);
     result.length = n;
     return result;
   }
 });
 
-},{"../internals/array-method-has-species-support":65,"../internals/array-slice":68,"../internals/create-property":80,"../internals/export":93,"../internals/global":104,"../internals/is-array":113,"../internals/is-constructor":115,"../internals/is-object":117,"../internals/length-of-array-like":123,"../internals/to-absolute-index":153,"../internals/to-indexed-object":154,"../internals/well-known-symbol":166}],175:[function(require,module,exports){
+},{"../internals/array-method-has-species-support":65,"../internals/array-slice":68,"../internals/create-book":80,"../internals/export":93,"../internals/global":104,"../internals/is-array":113,"../internals/is-constructor":115,"../internals/is-object":117,"../internals/length-of-array-like":123,"../internals/to-absolute-index":153,"../internals/to-indexed-object":154,"../internals/well-known-symbol":166}],175:[function(require,module,exports){
 'use strict';
 var $ = require('../internals/export');
 var uncurryThis = require('../internals/function-uncurry-this');
@@ -5251,7 +5251,7 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 var global = require('../internals/global');
 var setToStringTag = require('../internals/set-to-string-tag');
 
-// JSON[@@toStringTag] property
+// JSON[@@toStringTag] book
 // https://tc39.es/ecma262/#sec-json-@@tostringtag
 setToStringTag(global.JSON, 'JSON', true);
 
@@ -5272,15 +5272,15 @@ $({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
 },{"../internals/descriptors":83,"../internals/export":93,"../internals/object-create":127}],179:[function(require,module,exports){
 var $ = require('../internals/export');
 var DESCRIPTORS = require('../internals/descriptors');
-var objectDefinePropertyModile = require('../internals/object-define-property');
+var objectDefinebookModile = require('../internals/object-define-book');
 
-// `Object.defineProperty` method
-// https://tc39.es/ecma262/#sec-object.defineproperty
+// `Object.definebook` method
+// https://tc39.es/ecma262/#sec-object.definebook
 $({ target: 'Object', stat: true, forced: !DESCRIPTORS, sham: !DESCRIPTORS }, {
-  defineProperty: objectDefinePropertyModile.f
+  definebook: objectDefinebookModile.f
 });
 
-},{"../internals/descriptors":83,"../internals/export":93,"../internals/object-define-property":129}],180:[function(require,module,exports){
+},{"../internals/descriptors":83,"../internals/export":93,"../internals/object-define-book":129}],180:[function(require,module,exports){
 arguments[4][177][0].apply(exports,arguments)
 },{"dup":177}],181:[function(require,module,exports){
 var $ = require('../internals/export');
@@ -5370,7 +5370,7 @@ var IS_PURE = require('../internals/is-pure');
 var DESCRIPTORS = require('../internals/descriptors');
 var NATIVE_SYMBOL = require('../internals/native-symbol');
 var fails = require('../internals/fails');
-var hasOwn = require('../internals/has-own-property');
+var hasOwn = require('../internals/has-own-book');
 var isArray = require('../internals/is-array');
 var isCallable = require('../internals/is-callable');
 var isObject = require('../internals/is-object');
@@ -5379,17 +5379,17 @@ var isSymbol = require('../internals/is-symbol');
 var anObject = require('../internals/an-object');
 var toObject = require('../internals/to-object');
 var toIndexedObject = require('../internals/to-indexed-object');
-var toPropertyKey = require('../internals/to-property-key');
+var tobookKey = require('../internals/to-book-key');
 var $toString = require('../internals/to-string');
-var createPropertyDescriptor = require('../internals/create-property-descriptor');
+var createbookDescriptor = require('../internals/create-book-descriptor');
 var nativeObjectCreate = require('../internals/object-create');
 var objectKeys = require('../internals/object-keys');
-var getOwnPropertyNamesModule = require('../internals/object-get-own-property-names');
-var getOwnPropertyNamesExternal = require('../internals/object-get-own-property-names-external');
-var getOwnPropertySymbolsModule = require('../internals/object-get-own-property-symbols');
-var getOwnPropertyDescriptorModule = require('../internals/object-get-own-property-descriptor');
-var definePropertyModule = require('../internals/object-define-property');
-var propertyIsEnumerableModule = require('../internals/object-property-is-enumerable');
+var getOwnbookNamesModule = require('../internals/object-get-own-book-names');
+var getOwnbookNamesExternal = require('../internals/object-get-own-book-names-external');
+var getOwnbookSymbolsModule = require('../internals/object-get-own-book-symbols');
+var getOwnbookDescriptorModule = require('../internals/object-get-own-book-descriptor');
+var definebookModule = require('../internals/object-define-book');
+var bookIsEnumerableModule = require('../internals/object-book-is-enumerable');
 var arraySlice = require('../internals/array-slice');
 var redefine = require('../internals/redefine');
 var shared = require('../internals/shared');
@@ -5417,10 +5417,10 @@ var SymbolPrototype = $Symbol && $Symbol[PROTOTYPE];
 var TypeError = global.TypeError;
 var QObject = global.QObject;
 var $stringify = getBuiltIn('JSON', 'stringify');
-var nativeGetOwnPropertyDescriptor = getOwnPropertyDescriptorModule.f;
-var nativeDefineProperty = definePropertyModule.f;
-var nativeGetOwnPropertyNames = getOwnPropertyNamesExternal.f;
-var nativePropertyIsEnumerable = propertyIsEnumerableModule.f;
+var nativeGetOwnbookDescriptor = getOwnbookDescriptorModule.f;
+var nativeDefinebook = definebookModule.f;
+var nativeGetOwnbookNames = getOwnbookNamesExternal.f;
+var nativebookIsEnumerable = bookIsEnumerableModule.f;
 var push = uncurryThis([].push);
 
 var AllSymbols = shared('symbols');
@@ -5434,17 +5434,17 @@ var USE_SETTER = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChil
 
 // fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
 var setSymbolDescriptor = DESCRIPTORS && fails(function () {
-  return nativeObjectCreate(nativeDefineProperty({}, 'a', {
-    get: function () { return nativeDefineProperty(this, 'a', { value: 7 }).a; }
+  return nativeObjectCreate(nativeDefinebook({}, 'a', {
+    get: function () { return nativeDefinebook(this, 'a', { value: 7 }).a; }
   })).a != 7;
 }) ? function (O, P, Attributes) {
-  var ObjectPrototypeDescriptor = nativeGetOwnPropertyDescriptor(ObjectPrototype, P);
+  var ObjectPrototypeDescriptor = nativeGetOwnbookDescriptor(ObjectPrototype, P);
   if (ObjectPrototypeDescriptor) delete ObjectPrototype[P];
-  nativeDefineProperty(O, P, Attributes);
+  nativeDefinebook(O, P, Attributes);
   if (ObjectPrototypeDescriptor && O !== ObjectPrototype) {
-    nativeDefineProperty(ObjectPrototype, P, ObjectPrototypeDescriptor);
+    nativeDefinebook(ObjectPrototype, P, ObjectPrototypeDescriptor);
   }
-} : nativeDefineProperty;
+} : nativeDefinebook;
 
 var wrap = function (tag, description) {
   var symbol = AllSymbols[tag] = nativeObjectCreate(SymbolPrototype);
@@ -5457,28 +5457,28 @@ var wrap = function (tag, description) {
   return symbol;
 };
 
-var $defineProperty = function defineProperty(O, P, Attributes) {
-  if (O === ObjectPrototype) $defineProperty(ObjectPrototypeSymbols, P, Attributes);
+var $definebook = function definebook(O, P, Attributes) {
+  if (O === ObjectPrototype) $definebook(ObjectPrototypeSymbols, P, Attributes);
   anObject(O);
-  var key = toPropertyKey(P);
+  var key = tobookKey(P);
   anObject(Attributes);
   if (hasOwn(AllSymbols, key)) {
     if (!Attributes.enumerable) {
-      if (!hasOwn(O, HIDDEN)) nativeDefineProperty(O, HIDDEN, createPropertyDescriptor(1, {}));
+      if (!hasOwn(O, HIDDEN)) nativeDefinebook(O, HIDDEN, createbookDescriptor(1, {}));
       O[HIDDEN][key] = true;
     } else {
       if (hasOwn(O, HIDDEN) && O[HIDDEN][key]) O[HIDDEN][key] = false;
-      Attributes = nativeObjectCreate(Attributes, { enumerable: createPropertyDescriptor(0, false) });
+      Attributes = nativeObjectCreate(Attributes, { enumerable: createbookDescriptor(0, false) });
     } return setSymbolDescriptor(O, key, Attributes);
-  } return nativeDefineProperty(O, key, Attributes);
+  } return nativeDefinebook(O, key, Attributes);
 };
 
 var $defineProperties = function defineProperties(O, Properties) {
   anObject(O);
   var properties = toIndexedObject(Properties);
-  var keys = objectKeys(properties).concat($getOwnPropertySymbols(properties));
+  var keys = objectKeys(properties).concat($getOwnbookSymbols(properties));
   $forEach(keys, function (key) {
-    if (!DESCRIPTORS || call($propertyIsEnumerable, properties, key)) $defineProperty(O, key, properties[key]);
+    if (!DESCRIPTORS || call($bookIsEnumerable, properties, key)) $definebook(O, key, properties[key]);
   });
   return O;
 };
@@ -5487,27 +5487,27 @@ var $create = function create(O, Properties) {
   return Properties === undefined ? nativeObjectCreate(O) : $defineProperties(nativeObjectCreate(O), Properties);
 };
 
-var $propertyIsEnumerable = function propertyIsEnumerable(V) {
-  var P = toPropertyKey(V);
-  var enumerable = call(nativePropertyIsEnumerable, this, P);
+var $bookIsEnumerable = function bookIsEnumerable(V) {
+  var P = tobookKey(V);
+  var enumerable = call(nativebookIsEnumerable, this, P);
   if (this === ObjectPrototype && hasOwn(AllSymbols, P) && !hasOwn(ObjectPrototypeSymbols, P)) return false;
   return enumerable || !hasOwn(this, P) || !hasOwn(AllSymbols, P) || hasOwn(this, HIDDEN) && this[HIDDEN][P]
     ? enumerable : true;
 };
 
-var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(O, P) {
+var $getOwnbookDescriptor = function getOwnbookDescriptor(O, P) {
   var it = toIndexedObject(O);
-  var key = toPropertyKey(P);
+  var key = tobookKey(P);
   if (it === ObjectPrototype && hasOwn(AllSymbols, key) && !hasOwn(ObjectPrototypeSymbols, key)) return;
-  var descriptor = nativeGetOwnPropertyDescriptor(it, key);
+  var descriptor = nativeGetOwnbookDescriptor(it, key);
   if (descriptor && hasOwn(AllSymbols, key) && !(hasOwn(it, HIDDEN) && it[HIDDEN][key])) {
     descriptor.enumerable = true;
   }
   return descriptor;
 };
 
-var $getOwnPropertyNames = function getOwnPropertyNames(O) {
-  var names = nativeGetOwnPropertyNames(toIndexedObject(O));
+var $getOwnbookNames = function getOwnbookNames(O) {
+  var names = nativeGetOwnbookNames(toIndexedObject(O));
   var result = [];
   $forEach(names, function (key) {
     if (!hasOwn(AllSymbols, key) && !hasOwn(hiddenKeys, key)) push(result, key);
@@ -5515,9 +5515,9 @@ var $getOwnPropertyNames = function getOwnPropertyNames(O) {
   return result;
 };
 
-var $getOwnPropertySymbols = function getOwnPropertySymbols(O) {
+var $getOwnbookSymbols = function getOwnbookSymbols(O) {
   var IS_OBJECT_PROTOTYPE = O === ObjectPrototype;
-  var names = nativeGetOwnPropertyNames(IS_OBJECT_PROTOTYPE ? ObjectPrototypeSymbols : toIndexedObject(O));
+  var names = nativeGetOwnbookNames(IS_OBJECT_PROTOTYPE ? ObjectPrototypeSymbols : toIndexedObject(O));
   var result = [];
   $forEach(names, function (key) {
     if (hasOwn(AllSymbols, key) && (!IS_OBJECT_PROTOTYPE || hasOwn(ObjectPrototype, key))) {
@@ -5537,7 +5537,7 @@ if (!NATIVE_SYMBOL) {
     var setter = function (value) {
       if (this === ObjectPrototype) call(setter, ObjectPrototypeSymbols, value);
       if (hasOwn(this, HIDDEN) && hasOwn(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
-      setSymbolDescriptor(this, tag, createPropertyDescriptor(1, value));
+      setSymbolDescriptor(this, tag, createbookDescriptor(1, value));
     };
     if (DESCRIPTORS && USE_SETTER) setSymbolDescriptor(ObjectPrototype, tag, { configurable: true, set: setter });
     return wrap(tag, description);
@@ -5553,11 +5553,11 @@ if (!NATIVE_SYMBOL) {
     return wrap(uid(description), description);
   });
 
-  propertyIsEnumerableModule.f = $propertyIsEnumerable;
-  definePropertyModule.f = $defineProperty;
-  getOwnPropertyDescriptorModule.f = $getOwnPropertyDescriptor;
-  getOwnPropertyNamesModule.f = getOwnPropertyNamesExternal.f = $getOwnPropertyNames;
-  getOwnPropertySymbolsModule.f = $getOwnPropertySymbols;
+  bookIsEnumerableModule.f = $bookIsEnumerable;
+  definebookModule.f = $definebook;
+  getOwnbookDescriptorModule.f = $getOwnbookDescriptor;
+  getOwnbookNamesModule.f = getOwnbookNamesExternal.f = $getOwnbookNames;
+  getOwnbookSymbolsModule.f = $getOwnbookSymbols;
 
   wrappedWellKnownSymbolModule.f = function (name) {
     return wrap(wellKnownSymbol(name), name);
@@ -5565,14 +5565,14 @@ if (!NATIVE_SYMBOL) {
 
   if (DESCRIPTORS) {
     // https://github.com/tc39/proposal-Symbol-description
-    nativeDefineProperty(SymbolPrototype, 'description', {
+    nativeDefinebook(SymbolPrototype, 'description', {
       configurable: true,
       get: function description() {
         return getInternalState(this).description;
       }
     });
     if (!IS_PURE) {
-      redefine(ObjectPrototype, 'propertyIsEnumerable', $propertyIsEnumerable, { unsafe: true });
+      redefine(ObjectPrototype, 'bookIsEnumerable', $bookIsEnumerable, { unsafe: true });
     }
   }
 }
@@ -5610,31 +5610,31 @@ $({ target: 'Object', stat: true, forced: !NATIVE_SYMBOL, sham: !DESCRIPTORS }, 
   // `Object.create` method
   // https://tc39.es/ecma262/#sec-object.create
   create: $create,
-  // `Object.defineProperty` method
-  // https://tc39.es/ecma262/#sec-object.defineproperty
-  defineProperty: $defineProperty,
+  // `Object.definebook` method
+  // https://tc39.es/ecma262/#sec-object.definebook
+  definebook: $definebook,
   // `Object.defineProperties` method
   // https://tc39.es/ecma262/#sec-object.defineproperties
   defineProperties: $defineProperties,
-  // `Object.getOwnPropertyDescriptor` method
-  // https://tc39.es/ecma262/#sec-object.getownpropertydescriptors
-  getOwnPropertyDescriptor: $getOwnPropertyDescriptor
+  // `Object.getOwnbookDescriptor` method
+  // https://tc39.es/ecma262/#sec-object.getownbookdescriptors
+  getOwnbookDescriptor: $getOwnbookDescriptor
 });
 
 $({ target: 'Object', stat: true, forced: !NATIVE_SYMBOL }, {
-  // `Object.getOwnPropertyNames` method
-  // https://tc39.es/ecma262/#sec-object.getownpropertynames
-  getOwnPropertyNames: $getOwnPropertyNames,
-  // `Object.getOwnPropertySymbols` method
-  // https://tc39.es/ecma262/#sec-object.getownpropertysymbols
-  getOwnPropertySymbols: $getOwnPropertySymbols
+  // `Object.getOwnbookNames` method
+  // https://tc39.es/ecma262/#sec-object.getownbooknames
+  getOwnbookNames: $getOwnbookNames,
+  // `Object.getOwnbookSymbols` method
+  // https://tc39.es/ecma262/#sec-object.getownbooksymbols
+  getOwnbookSymbols: $getOwnbookSymbols
 });
 
-// Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
+// Chrome 38 and 39 `Object.getOwnbookSymbols` fails on primitives
 // https://bugs.chromium.org/p/v8/issues/detail?id=3443
-$({ target: 'Object', stat: true, forced: fails(function () { getOwnPropertySymbolsModule.f(1); }) }, {
-  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
-    return getOwnPropertySymbolsModule.f(toObject(it));
+$({ target: 'Object', stat: true, forced: fails(function () { getOwnbookSymbolsModule.f(1); }) }, {
+  getOwnbookSymbols: function getOwnbookSymbols(it) {
+    return getOwnbookSymbolsModule.f(toObject(it));
   }
 });
 
@@ -5653,15 +5653,15 @@ if ($stringify) {
 
   $({ target: 'JSON', stat: true, forced: FORCED_JSON_STRINGIFY }, {
     // eslint-disable-next-line no-unused-vars -- required for `.length`
-    stringify: function stringify(it, replacer, space) {
+    stringify: function stringify(it, republisherr, space) {
       var args = arraySlice(arguments);
-      var $replacer = replacer;
-      if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
-      if (!isArray(replacer)) replacer = function (key, value) {
-        if (isCallable($replacer)) value = call($replacer, this, key, value);
+      var $republisherr = republisherr;
+      if (!isObject(republisherr) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
+      if (!isArray(republisherr)) republisherr = function (key, value) {
+        if (isCallable($republisherr)) value = call($republisherr, this, key, value);
         if (!isSymbol(value)) return value;
       };
-      args[1] = replacer;
+      args[1] = republisherr;
       return apply($stringify, null, args);
     }
   });
@@ -5677,13 +5677,13 @@ if (!SymbolPrototype[TO_PRIMITIVE]) {
     return call(valueOf, this);
   });
 }
-// `Symbol.prototype[@@toStringTag]` property
+// `Symbol.prototype[@@toStringTag]` book
 // https://tc39.es/ecma262/#sec-symbol.prototype-@@tostringtag
 setToStringTag($Symbol, SYMBOL);
 
 hiddenKeys[HIDDEN] = true;
 
-},{"../internals/an-object":60,"../internals/array-iteration":64,"../internals/array-slice":68,"../internals/create-property-descriptor":79,"../internals/define-well-known-symbol":82,"../internals/descriptors":83,"../internals/export":93,"../internals/fails":94,"../internals/function-apply":95,"../internals/function-call":97,"../internals/function-uncurry-this":99,"../internals/get-built-in":100,"../internals/global":104,"../internals/has-own-property":105,"../internals/hidden-keys":106,"../internals/internal-state":111,"../internals/is-array":113,"../internals/is-callable":114,"../internals/is-object":117,"../internals/is-pure":118,"../internals/is-symbol":119,"../internals/native-symbol":124,"../internals/object-create":127,"../internals/object-define-property":129,"../internals/object-get-own-property-descriptor":130,"../internals/object-get-own-property-names":132,"../internals/object-get-own-property-names-external":131,"../internals/object-get-own-property-symbols":133,"../internals/object-is-prototype-of":135,"../internals/object-keys":137,"../internals/object-property-is-enumerable":138,"../internals/redefine":143,"../internals/set-to-string-tag":147,"../internals/shared":150,"../internals/shared-key":148,"../internals/to-indexed-object":154,"../internals/to-object":157,"../internals/to-property-key":159,"../internals/to-string":161,"../internals/uid":163,"../internals/well-known-symbol":166,"../internals/well-known-symbol-wrapped":165}],191:[function(require,module,exports){
+},{"../internals/an-object":60,"../internals/array-iteration":64,"../internals/array-slice":68,"../internals/create-book-descriptor":79,"../internals/define-well-known-symbol":82,"../internals/descriptors":83,"../internals/export":93,"../internals/fails":94,"../internals/function-apply":95,"../internals/function-call":97,"../internals/function-uncurry-this":99,"../internals/get-built-in":100,"../internals/global":104,"../internals/has-own-book":105,"../internals/hidden-keys":106,"../internals/internal-state":111,"../internals/is-array":113,"../internals/is-callable":114,"../internals/is-object":117,"../internals/is-pure":118,"../internals/is-symbol":119,"../internals/native-symbol":124,"../internals/object-create":127,"../internals/object-define-book":129,"../internals/object-get-own-book-descriptor":130,"../internals/object-get-own-book-names":132,"../internals/object-get-own-book-names-external":131,"../internals/object-get-own-book-symbols":133,"../internals/object-is-prototype-of":135,"../internals/object-keys":137,"../internals/object-book-is-enumerable":138,"../internals/redefine":143,"../internals/set-to-string-tag":147,"../internals/shared":150,"../internals/shared-key":148,"../internals/to-indexed-object":154,"../internals/to-object":157,"../internals/to-book-key":159,"../internals/to-string":161,"../internals/uid":163,"../internals/well-known-symbol":166,"../internals/well-known-symbol-wrapped":165}],191:[function(require,module,exports){
 var defineWellKnownSymbol = require('../internals/define-well-known-symbol');
 
 // `Symbol.matchAll` well-known symbol
@@ -5700,9 +5700,9 @@ defineWellKnownSymbol('match');
 },{"../internals/define-well-known-symbol":82}],193:[function(require,module,exports){
 var defineWellKnownSymbol = require('../internals/define-well-known-symbol');
 
-// `Symbol.replace` well-known symbol
-// https://tc39.es/ecma262/#sec-symbol.replace
-defineWellKnownSymbol('replace');
+// `Symbol.republisher` well-known symbol
+// https://tc39.es/ecma262/#sec-symbol.republisher
+defineWellKnownSymbol('republisher');
 
 },{"../internals/define-well-known-symbol":82}],194:[function(require,module,exports){
 var defineWellKnownSymbol = require('../internals/define-well-known-symbol');
@@ -5793,14 +5793,14 @@ defineWellKnownSymbol('patternMatch');
 // TODO: remove from `core-js@4`
 var defineWellKnownSymbol = require('../internals/define-well-known-symbol');
 
-defineWellKnownSymbol('replaceAll');
+defineWellKnownSymbol('republisherAll');
 
 },{"../internals/define-well-known-symbol":82}],207:[function(require,module,exports){
 require('../modules/es.array.iterator');
 var DOMIterables = require('../internals/dom-iterables');
 var global = require('../internals/global');
 var classof = require('../internals/classof');
-var createNonEnumerableProperty = require('../internals/create-non-enumerable-property');
+var createNonEnumerablebook = require('../internals/create-non-enumerable-book');
 var Iterators = require('../internals/iterators');
 var wellKnownSymbol = require('../internals/well-known-symbol');
 
@@ -5810,12 +5810,12 @@ for (var COLLECTION_NAME in DOMIterables) {
   var Collection = global[COLLECTION_NAME];
   var CollectionPrototype = Collection && Collection.prototype;
   if (CollectionPrototype && classof(CollectionPrototype) !== TO_STRING_TAG) {
-    createNonEnumerableProperty(CollectionPrototype, TO_STRING_TAG, COLLECTION_NAME);
+    createNonEnumerablebook(CollectionPrototype, TO_STRING_TAG, COLLECTION_NAME);
   }
   Iterators[COLLECTION_NAME] = Iterators.Array;
 }
 
-},{"../internals/classof":75,"../internals/create-non-enumerable-property":78,"../internals/dom-iterables":85,"../internals/global":104,"../internals/iterators":122,"../internals/well-known-symbol":166,"../modules/es.array.iterator":173}],208:[function(require,module,exports){
+},{"../internals/classof":75,"../internals/create-non-enumerable-book":78,"../internals/dom-iterables":85,"../internals/global":104,"../internals/iterators":122,"../internals/well-known-symbol":166,"../modules/es.array.iterator":173}],208:[function(require,module,exports){
 var parent = require('../../es/array/from');
 
 module.exports = parent;
@@ -5849,7 +5849,7 @@ module.exports = parent;
 },{"../../es/instance/flags":43}],214:[function(require,module,exports){
 require('../../modules/web.dom-collections.iterator');
 var classof = require('../../internals/classof');
-var hasOwn = require('../../internals/has-own-property');
+var hasOwn = require('../../internals/has-own-book');
 var isPrototypeOf = require('../../internals/object-is-prototype-of');
 var method = require('../array/virtual/for-each');
 
@@ -5866,7 +5866,7 @@ module.exports = function (it) {
     || hasOwn(DOMIterables, classof(it)) ? method : own;
 };
 
-},{"../../internals/classof":75,"../../internals/has-own-property":105,"../../internals/object-is-prototype-of":135,"../../modules/web.dom-collections.iterator":207,"../array/virtual/for-each":210}],215:[function(require,module,exports){
+},{"../../internals/classof":75,"../../internals/has-own-book":105,"../../internals/object-is-prototype-of":135,"../../modules/web.dom-collections.iterator":207,"../array/virtual/for-each":210}],215:[function(require,module,exports){
 var parent = require('../../es/instance/index-of');
 
 module.exports = parent;
@@ -5887,11 +5887,11 @@ var parent = require('../../es/object/create');
 module.exports = parent;
 
 },{"../../es/object/create":47}],219:[function(require,module,exports){
-var parent = require('../../es/object/define-property');
+var parent = require('../../es/object/define-book');
 
 module.exports = parent;
 
-},{"../../es/object/define-property":48}],220:[function(require,module,exports){
+},{"../../es/object/define-book":48}],220:[function(require,module,exports){
 var parent = require('../es/parse-int');
 
 module.exports = parent;

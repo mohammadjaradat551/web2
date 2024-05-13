@@ -1,0 +1,91 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load bootstrap4 %}
+{% block content%}
+
+    <div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg_5.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a href="hotel.html">Book</a></span> <span>Book Single</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Book Details</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<section class="ftco-section ftco-degree-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="row">
+          <div class="col-md-12 hotel-single ftco-animate">
+            <div class="row">
+              <div class="col-md-8 text-content">
+                <h2>{{ object.name }}</h2>
+                <p>{{ object.description }}</p>
+              </div>
+              <div class="col-md-4">
+                <div class="hotel-img" style="background-image: url({{ book.main_image.url }});"></div>
+              </div>
+            </div>
+          </div>
+            {% if object.check_availability != 'available' %}
+				<h4 class="mb-5">The Book Is not available </h4>
+		    {% endif%}
+          	<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+          		<h4 class="mb-5">Borrow A Book:</h4>
+          		<div class="fields">
+          			<form  class="form" method='POST'>
+						{% csrf_token %}							
+						{% bootstrap_form form %}
+						{% buttons %}
+							<button type="submit" class="btn btn-primary">Borrow</button>
+						{% endbuttons %}
+					</form>
+		        </div>
+          	</div>
+          	<div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
+          		<h4 class="mb-4">Related Books</h4>
+          		<div class="row">
+					{% for book in related_properties%}
+							
+          					<div class="col-md-4">
+				    			<div class="destination">
+				    				<a href="{{book.get_absolute_url}}" class="img img-2" style="background-image: url({{book.main_image.url}});"></a>
+				    				<div class="text p-3">
+				    					<div class="d-flex">
+				    						<div class="one">
+						    					<h3><a href="{{book.get_absolute_url}}">{{book}}</a></h3>
+						    					<p class="rate">
+						    						<i class="icon-star"></i>
+						    						<i class="icon-star"></i>
+						    						<i class="icon-star"></i>
+						    						<i class="icon-star"></i>
+						    						<i class="icon-star-o"></i>
+						    						<span>8 Rating</span>
+						    					</p>
+					    					</div>
+					    					<div class="two">
+					    						<span class="price per-price">${{book.price}}<br><small>/night</small></span>
+				    						</div>
+				    					</div>
+				    						<p>{{book.description}}</p>
+				    						<hr>
+				    						<p class="bottom-area d-flex">
+				    							<span><i class="icon-map-o"></i> {{book.publisher}}</span> 
+				    							<span class="ml-auto"><a href="{{book.get_absolute_url}}">Book Now</a></span>
+				    						</p>
+				    				</div>
+				    			</div>
+				    		</div>
+				    	{% endfor%}
+          		</div>
+          	</div>
+        </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content%}

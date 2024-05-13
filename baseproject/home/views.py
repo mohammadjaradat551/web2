@@ -1,45 +1,30 @@
 from django.shortcuts import render
-
-
-from property.models import *
-from blog.models import Post
-
+from book.models import *
 from django.db.models import Q, Count
 from django.contrib.auth.models import User
 
-
 # Create your views here.
 def home(request):
-    num_of_restaurant= Property.objects.filter(category__name= 'restaurant').count()
-    num_of_hotels= Property.objects.filter(category__name= 'hotels').count()
-    num_of_houses= Property.objects.filter(category__name= 'house').count()
-    count_of_hotels_house= num_of_hotels + num_of_houses
-    hotels_and_rooms= Property.objects.filter(
-        Q(category__name= 'hotels') | Q(category__name= 'house')
-    )[:4]
-    restaurant= Property.objects.filter(category__name= 'restaurant')[:4]
-    posts= Post.objects.all()[:4]
-
+    categories= Category.objects.all()
+    books= Book.objects.filter(
+        Q(category__name= 'romantic') | Q(category__name= 'action'))[:4]
+    
+    
     context= {
-        'places': Place.objects.all().annotate(property_count= Count('property_place')),
-        'categories': Category.objects.all(),
+        'publishers': Publisher.objects.all().annotate(book_count= Count('book_publisher')),
+        'categories': categories,
         'customers': User.objects.all().count(),
-        'num_of_places': Place.objects.all().count(),
-        'num_of_restaurant': num_of_restaurant,
-        'count_of_hotels_house':count_of_hotels_house,
-        'hotels_and_rooms':hotels_and_rooms,
-        'restaurants':restaurant,
-        'posts': posts,
+        'books':books
     }
     return render(request, 'home/home_list.html', context)
 
 
 def home_search(request):
     name = request.GET.get('name')
-    place = request.GET.get('place')
+    publisher = request.GET.get('publisher')
 
-    result= Property.objects.filter(
-        Q(name__icontains=name) & Q(place__name__icontains= place)
+    result= Book.objects.filter(
+        Q(name__icontains=name) & Q(publisher__name__icontains= publisher)
     )
     
 
@@ -47,13 +32,13 @@ def home_search(request):
 
 def FilterByCategory(request, category):
     name_of_category = Category.objects.get(name=category)
-    result= Property.objects.filter(category__name__icontains= name_of_category)
+    result= Book.objects.filter(category__name__icontains= name_of_category)
     return render(request, 'home/home_search.html', {'result':result})
 
 
-def FilterByPlace(request, place):
-    place= Place.objects.get(name=place)
-    result= Property.objects.filter(place__name= place)
+def FilterByPublisher(request, publisher):
+    publisher= publisher.objects.get(name=publisher)
+    result= Book.objects.filter(publisher__name= publisher)
     return render(request, 'home/home_search.html', {'result':result})
     
 

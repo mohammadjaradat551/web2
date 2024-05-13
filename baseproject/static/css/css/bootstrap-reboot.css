@@ -270,3 +270,22 @@ template {
 
 [hidden] {
   display: none !important; }
+
+
+  .hotel-single {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+  }
+  
+  .hotel-content {
+    flex: 1;
+  }
+  
+  .hotel-img {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+  }

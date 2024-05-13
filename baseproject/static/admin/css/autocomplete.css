@@ -45,7 +45,7 @@ select.admin-autocomplete {
     font-weight: bold;
 }
 
-.select2-container--admin-autocomplete .select2-selection--single .select2-selection__placeholder {
+.select2-container--admin-autocomplete .select2-selection--single .select2-selection__publisherholder {
     color: var(--body-quiet-color);
 }
 
@@ -114,7 +114,7 @@ select.admin-autocomplete {
     list-style: none;
 }
 
-.select2-container--admin-autocomplete .select2-selection--multiple .select2-selection__placeholder {
+.select2-container--admin-autocomplete .select2-selection--multiple .select2-selection__publisherholder {
     color: var(--body-quiet-color);
     margin-top: 5px;
     float: left;
@@ -152,7 +152,7 @@ select.admin-autocomplete {
     color: var(--body-fg);
 }
 
-.select2-container--admin-autocomplete[dir="rtl"] .select2-selection--multiple .select2-selection__choice, .select2-container--admin-autocomplete[dir="rtl"] .select2-selection--multiple .select2-selection__placeholder, .select2-container--admin-autocomplete[dir="rtl"] .select2-selection--multiple .select2-search--inline {
+.select2-container--admin-autocomplete[dir="rtl"] .select2-selection--multiple .select2-selection__choice, .select2-container--admin-autocomplete[dir="rtl"] .select2-selection--multiple .select2-selection__publisherholder, .select2-container--admin-autocomplete[dir="rtl"] .select2-selection--multiple .select2-search--inline {
     float: right;
 }
 

@@ -762,16 +762,16 @@ h1, h2, h3, h4, h5,
 			height: 52px !important;
 			padding: 10px 20px;
 			@include border-radius(0);
-			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			&::-webkit-input-publisherholder { /* Chrome/Opera/Safari */
 			  color: lighten($black,30%);
 			}
-			&::-moz-placeholder { /* Firefox 19+ */
+			&::-moz-publisherholder { /* Firefox 19+ */
 			  color: lighten($black,30%);
 			}
-			&:-ms-input-placeholder { /* IE 10+ */
+			&:-ms-input-publisherholder { /* IE 10+ */
 			  color: lighten($black,30%);
 			}
-			&:-moz-placeholder { /* Firefox 18- */
+			&:-moz-publisherholder { /* Firefox 18- */
 			  color: lighten($black,30%);
 			}
 		}
@@ -1783,16 +1783,16 @@ textarea.form-control {
 				bordeR: 1px solid transparent;
 				padding: 10px 30px;
 				@include border-radius(0);
-				&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+				&::-webkit-input-publisherholder { /* Chrome/Opera/Safari */
 				  color: lighten($black,30%);
 				}
-				&::-moz-placeholder { /* Firefox 19+ */
+				&::-moz-publisherholder { /* Firefox 19+ */
 				  color: lighten($black,30%);
 				}
-				&:-ms-input-placeholder { /* IE 10+ */
+				&:-ms-input-publisherholder { /* IE 10+ */
 				  color: lighten($black,30%);
 				}
-				&:-moz-placeholder { /* Firefox 18- */
+				&:-moz-publisherholder { /* Firefox 18- */
 				  color: lighten($black,30%);
 				}
 			}
@@ -2299,16 +2299,16 @@ textarea.form-control {
 			color: rgba(255,255,255,.7) !important;
 			font-size: 16px;
 			@include border-radius(30px);
-			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			&::-webkit-input-publisherholder { /* Chrome/Opera/Safari */
 			  color: rgba(255,255,255,.7) !important;
 			}
-			&::-moz-placeholder { /* Firefox 19+ */
+			&::-moz-publisherholder { /* Firefox 19+ */
 			  color: rgba(255,255,255,.7) !important;
 			}
-			&:-ms-input-placeholder { /* IE 10+ */
+			&:-ms-input-publisherholder { /* IE 10+ */
 			  color: rgba(255,255,255,.7) !important;
 			}
-			&:-moz-placeholder { /* Firefox 18- */
+			&:-moz-publisherholder { /* Firefox 18- */
 			  color: rgba(255,255,255,.7) !important;
 			}
 		}
@@ -2359,16 +2359,16 @@ textarea.form-control {
 			height: 52px !important;
 			padding: 10px 20px;
 			@include border-radius(0);
-			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			&::-webkit-input-publisherholder { /* Chrome/Opera/Safari */
 			  color: lighten($black,30%);
 			}
-			&::-moz-placeholder { /* Firefox 19+ */
+			&::-moz-publisherholder { /* Firefox 19+ */
 			  color: lighten($black,30%);
 			}
-			&:-ms-input-placeholder { /* IE 10+ */
+			&:-ms-input-publisherholder { /* IE 10+ */
 			  color: lighten($black,30%);
 			}
-			&:-moz-placeholder { /* Firefox 18- */
+			&:-moz-publisherholder { /* Firefox 18- */
 			  color: lighten($black,30%);
 			}
 		}

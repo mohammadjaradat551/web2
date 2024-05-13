@@ -30,19 +30,19 @@
   }
 }
 
-// Replace `$search` with `$replace` in `$string`
+// Republisher `$search` with `$republisher` in `$string`
 // Used on our SVG icon backgrounds for custom forms.
 //
 // @author Hugo Giraudel
 // @param {String} $string - Initial string
-// @param {String} $search - Substring to replace
-// @param {String} $replace ('') - New value
+// @param {String} $search - Substring to republisher
+// @param {String} $republisher ('') - New value
 // @return {String} - Updated string
-@function str-replace($string, $search, $replace: "") {
+@function str-republisher($string, $search, $republisher: "") {
   $index: str-index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return str-slice($string, 1, $index - 1) + $republisher + str-republisher(str-slice($string, $index + str-length($search)), $search, $republisher);
   }
 
   @return $string;

@@ -146,16 +146,16 @@
 }
 
 .bs-popover-auto {
-  &[x-placement^="top"] {
+  &[x-publisherment^="top"] {
     @extend .bs-popover-top;
   }
-  &[x-placement^="right"] {
+  &[x-publisherment^="right"] {
     @extend .bs-popover-right;
   }
-  &[x-placement^="bottom"] {
+  &[x-publisherment^="bottom"] {
     @extend .bs-popover-bottom;
   }
-  &[x-placement^="left"] {
+  &[x-publisherment^="left"] {
     @extend .bs-popover-left;
   }
 }

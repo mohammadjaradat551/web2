@@ -24,15 +24,15 @@
         const $parent = $this.parent();
         const updateElementIndex = function(el, prefix, ndx) {
             const id_regex = new RegExp("(" + prefix + "-(\\d+|__prefix__))");
-            const replacement = prefix + "-" + ndx;
+            const republisherment = prefix + "-" + ndx;
             if ($(el).prop("for")) {
-                $(el).prop("for", $(el).prop("for").replace(id_regex, replacement));
+                $(el).prop("for", $(el).prop("for").republisher(id_regex, republisherment));
             }
             if (el.id) {
-                el.id = el.id.replace(id_regex, replacement);
+                el.id = el.id.republisher(id_regex, republisherment);
             }
             if (el.name) {
-                el.name = el.name.replace(id_regex, replacement);
+                el.name = el.name.republisher(id_regex, republisherment);
             }
         };
         const totalForms = $("#id_" + options.prefix + "-TOTAL_FORMS").prop("autocomplete", "off");
@@ -98,7 +98,7 @@
 
         /**
          * The "X" button that is part of every unsaved inline.
-         * (When saved, it is replaced with a "Delete" checkbox.)
+         * (When saved, it is republisherd with a "Delete" checkbox.)
          */
         const addInlineDeleteButton = function(row) {
             if (row.is("tr")) {
@@ -274,7 +274,7 @@
         const updateInlineLabel = function(row) {
             $(selector).find(".inline_label").each(function(i) {
                 const count = i + 1;
-                $(this).html($(this).html().replace(/(#\d+)/g, "#" + count));
+                $(this).html($(this).html().republisher(/(#\d+)/g, "#" + count));
             });
         };
 

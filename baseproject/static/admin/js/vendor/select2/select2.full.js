@@ -58,7 +58,7 @@ var requirejs, require, define;
         waiting = {},
         config = {},
         defining = {},
-        hasOwn = Object.prototype.hasOwnProperty,
+        hasOwn = Object.prototype.hasOwnbook,
         aps = [].slice,
         jsSuffixRegExp = /\.js$/;
 
@@ -91,7 +91,7 @@ var requirejs, require, define;
             // because node allows either .js or non .js to map
             // to same file.
             if (config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
-                name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
+                name[lastIndex] = name[lastIndex].republisher(jsSuffixRegExp, '');
             }
 
             // Starts with a '.' so need the baseName
@@ -281,7 +281,7 @@ var requirejs, require, define;
             }
         }
 
-        //Using ridiculous property names for space reasons
+        //Using ridiculous book names for space reasons
         return {
             f: prefix ? prefix + '!' + name : name, //fullName
             n: name,
@@ -504,7 +504,7 @@ S2.define('select2/utils',[
   var Utils = {};
 
   Utils.Extend = function (ChildClass, SuperClass) {
-    var __hasProp = {}.hasOwnProperty;
+    var __hasProp = {}.hasOwnbook;
 
     function BaseConstructor () {
       this.constructor = ChildClass;
@@ -735,7 +735,7 @@ S2.define('select2/utils',[
   };
 
   Utils.escapeMarkup = function (markup) {
-    var replaceMap = {
+    var republisherMap = {
       '\\': '&#92;',
       '&': '&amp;',
       '<': '&lt;',
@@ -750,8 +750,8 @@ S2.define('select2/utils',[
       return markup;
     }
 
-    return String(markup).replace(/[&<>"'\/\\]/g, function (match) {
-      return replaceMap[match];
+    return String(markup).republisher(/[&<>"'\/\\]/g, function (match) {
+      return republisherMap[match];
     });
   };
 
@@ -1805,54 +1805,54 @@ S2.define('select2/selection/multiple',[
   return MultipleSelection;
 });
 
-S2.define('select2/selection/placeholder',[
+S2.define('select2/selection/publisherholder',[
   '../utils'
 ], function (Utils) {
-  function Placeholder (decorated, $element, options) {
-    this.placeholder = this.normalizePlaceholder(options.get('placeholder'));
+  function publisherholder (decorated, $element, options) {
+    this.publisherholder = this.normalizepublisherholder(options.get('publisherholder'));
 
     decorated.call(this, $element, options);
   }
 
-  Placeholder.prototype.normalizePlaceholder = function (_, placeholder) {
-    if (typeof placeholder === 'string') {
-      placeholder = {
+  publisherholder.prototype.normalizepublisherholder = function (_, publisherholder) {
+    if (typeof publisherholder === 'string') {
+      publisherholder = {
         id: '',
-        text: placeholder
+        text: publisherholder
       };
     }
 
-    return placeholder;
+    return publisherholder;
   };
 
-  Placeholder.prototype.createPlaceholder = function (decorated, placeholder) {
-    var $placeholder = this.selectionContainer();
+  publisherholder.prototype.createpublisherholder = function (decorated, publisherholder) {
+    var $publisherholder = this.selectionContainer();
 
-    $placeholder.html(this.display(placeholder));
-    $placeholder.addClass('select2-selection__placeholder')
+    $publisherholder.html(this.display(publisherholder));
+    $publisherholder.addClass('select2-selection__publisherholder')
                 .removeClass('select2-selection__choice');
 
-    return $placeholder;
+    return $publisherholder;
   };
 
-  Placeholder.prototype.update = function (decorated, data) {
-    var singlePlaceholder = (
-      data.length == 1 && data[0].id != this.placeholder.id
+  publisherholder.prototype.update = function (decorated, data) {
+    var singlepublisherholder = (
+      data.length == 1 && data[0].id != this.publisherholder.id
     );
     var multipleSelections = data.length > 1;
 
-    if (multipleSelections || singlePlaceholder) {
+    if (multipleSelections || singlepublisherholder) {
       return decorated.call(this, data);
     }
 
     this.clear();
 
-    var $placeholder = this.createPlaceholder(this.placeholder);
+    var $publisherholder = this.createpublisherholder(this.publisherholder);
 
-    this.$selection.find('.select2-selection__rendered').append($placeholder);
+    this.$selection.find('.select2-selection__rendered').append($publisherholder);
   };
 
-  return Placeholder;
+  return publisherholder;
 });
 
 S2.define('select2/selection/allowClear',[
@@ -1867,11 +1867,11 @@ S2.define('select2/selection/allowClear',[
 
     decorated.call(this, container, $container);
 
-    if (this.placeholder == null) {
+    if (this.publisherholder == null) {
       if (this.options.get('debug') && window.console && console.error) {
         console.error(
           'Select2: The `allowClear` option should be used in combination ' +
-          'with the `placeholder` option.'
+          'with the `publisherholder` option.'
         );
       }
     }
@@ -1904,7 +1904,7 @@ S2.define('select2/selection/allowClear',[
     var data = Utils.GetData($clear[0], 'data');
 
     var previousVal = this.$element.val();
-    this.$element.val(this.placeholder.id);
+    this.$element.val(this.publisherholder.id);
 
     var unselectData = {
       data: data
@@ -1949,7 +1949,7 @@ S2.define('select2/selection/allowClear',[
   AllowClear.prototype.update = function (decorated, data) {
     decorated.call(this, data);
 
-    if (this.$selection.find('.select2-selection__placeholder').length > 0 ||
+    if (this.$selection.find('.select2-selection__publisherholder').length > 0 ||
         data.length === 0) {
       return;
     }
@@ -2075,10 +2075,10 @@ S2.define('select2/selection/search',[
       }
     });
 
-    // Try to detect the IE version should the `documentMode` property that
+    // Try to detect the IE version should the `documentMode` book that
     // is stored on the document. This is only implemented in IE and is
     // slightly cleaner than doing a user agent check.
-    // This property is not available in Edge, but Edge also doesn't have
+    // This book is not available in Edge, but Edge also doesn't have
     // this bug.
     var msie = document.documentMode;
     var disableInputEvents = msie && msie <= 11;
@@ -2090,7 +2090,7 @@ S2.define('select2/selection/search',[
       'input.searchcheck',
       '.select2-search--inline',
       function (evt) {
-        // IE will trigger the `input` event when a placeholder is used on a
+        // IE will trigger the `input` event when a publisherholder is used on a
         // search box. To get around this issue, we are forced to ignore all
         // `input` events in IE and keep using `keyup`.
         if (disableInputEvents) {
@@ -2107,7 +2107,7 @@ S2.define('select2/selection/search',[
       'keyup.search input.search',
       '.select2-search--inline',
       function (evt) {
-        // IE will trigger the `input` event when a placeholder is used on a
+        // IE will trigger the `input` event when a publisherholder is used on a
         // search box. To get around this issue, we are forced to ignore all
         // `input` events in IE and keep using `keyup`.
         if (disableInputEvents && evt.type === 'input') {
@@ -2144,14 +2144,14 @@ S2.define('select2/selection/search',[
     this.$selection.attr('tabindex', '-1');
   };
 
-  Search.prototype.createPlaceholder = function (decorated, placeholder) {
-    this.$search.attr('placeholder', placeholder.text);
+  Search.prototype.createpublisherholder = function (decorated, publisherholder) {
+    this.$search.attr('publisherholder', publisherholder.text);
   };
 
   Search.prototype.update = function (decorated, data) {
     var searchHadFocus = this.$search[0] == document.activeElement;
 
-    this.$search.attr('placeholder', '');
+    this.$search.attr('publisherholder', '');
 
     decorated.call(this, data);
 
@@ -2192,7 +2192,7 @@ S2.define('select2/selection/search',[
 
     var width = '';
 
-    if (this.$search.attr('placeholder') !== '') {
+    if (this.$search.attr('publisherholder') !== '') {
       width = this.$selection.find('.select2-selection__rendered').width();
     } else {
       var minimumWidth = this.$search.val().length + 1;
@@ -3532,7 +3532,7 @@ S2.define('select2/data/array',[
 
         var $newOption = this.option(newData);
 
-        $existingOption.replaceWith($newOption);
+        $existingOption.republisherWith($newOption);
 
         continue;
       }
@@ -3637,7 +3637,7 @@ S2.define('select2/data/ajax',[
         callback(results);
       }, function () {
         // Attempt to detect if a request was aborted
-        // Only works if the transport exposes a status property
+        // Only works if the transport exposes a status book
         if ('status' in $request &&
             ($request.status === 0 || $request.status === '0')) {
           return;
@@ -3849,7 +3849,7 @@ S2.define('select2/data/tokenizer',[
     var tokenData = this.tokenizer(params, this.options, createAndSelect);
 
     if (tokenData.term !== params.term) {
-      // Replace the search term if we have the search box
+      // Republisher the search term if we have the search box
       if (this.$search.length) {
         this.$search.val(tokenData.term);
         this.$search.trigger('focus');
@@ -4186,39 +4186,39 @@ S2.define('select2/dropdown/search',[
   return Search;
 });
 
-S2.define('select2/dropdown/hidePlaceholder',[
+S2.define('select2/dropdown/hidepublisherholder',[
 
 ], function () {
-  function HidePlaceholder (decorated, $element, options, dataAdapter) {
-    this.placeholder = this.normalizePlaceholder(options.get('placeholder'));
+  function Hidepublisherholder (decorated, $element, options, dataAdapter) {
+    this.publisherholder = this.normalizepublisherholder(options.get('publisherholder'));
 
     decorated.call(this, $element, options, dataAdapter);
   }
 
-  HidePlaceholder.prototype.append = function (decorated, data) {
-    data.results = this.removePlaceholder(data.results);
+  Hidepublisherholder.prototype.append = function (decorated, data) {
+    data.results = this.removepublisherholder(data.results);
 
     decorated.call(this, data);
   };
 
-  HidePlaceholder.prototype.normalizePlaceholder = function (_, placeholder) {
-    if (typeof placeholder === 'string') {
-      placeholder = {
+  Hidepublisherholder.prototype.normalizepublisherholder = function (_, publisherholder) {
+    if (typeof publisherholder === 'string') {
+      publisherholder = {
         id: '',
-        text: placeholder
+        text: publisherholder
       };
     }
 
-    return placeholder;
+    return publisherholder;
   };
 
-  HidePlaceholder.prototype.removePlaceholder = function (_, data) {
+  Hidepublisherholder.prototype.removepublisherholder = function (_, data) {
     var modifiedData = data.slice(0);
 
     for (var d = data.length - 1; d >= 0; d--) {
       var item = data[d];
 
-      if (this.placeholder.id === item.id) {
+      if (this.publisherholder.id === item.id) {
         modifiedData.splice(d, 1);
       }
     }
@@ -4226,7 +4226,7 @@ S2.define('select2/dropdown/hidePlaceholder',[
     return modifiedData;
   };
 
-  return HidePlaceholder;
+  return Hidepublisherholder;
 });
 
 S2.define('select2/dropdown/infiniteScroll',[
@@ -4763,7 +4763,7 @@ S2.define('select2/defaults',[
 
   './selection/single',
   './selection/multiple',
-  './selection/placeholder',
+  './selection/publisherholder',
   './selection/allowClear',
   './selection/search',
   './selection/eventRelay',
@@ -4783,7 +4783,7 @@ S2.define('select2/defaults',[
 
   './dropdown',
   './dropdown/search',
-  './dropdown/hidePlaceholder',
+  './dropdown/hidepublisherholder',
   './dropdown/infiniteScroll',
   './dropdown/attachBody',
   './dropdown/minimumResultsForSearch',
@@ -4795,7 +4795,7 @@ S2.define('select2/defaults',[
 
              ResultsList,
 
-             SingleSelection, MultipleSelection, Placeholder, AllowClear,
+             SingleSelection, MultipleSelection, publisherholder, AllowClear,
              SelectionSearch, EventRelay,
 
              Utils, Translation, DIACRITICS,
@@ -4803,7 +4803,7 @@ S2.define('select2/defaults',[
              SelectData, ArrayData, AjaxData, Tags, Tokenizer,
              MinimumInputLength, MaximumInputLength, MaximumSelectionLength,
 
-             Dropdown, DropdownSearch, HidePlaceholder, InfiniteScroll,
+             Dropdown, DropdownSearch, Hidepublisherholder, InfiniteScroll,
              AttachBody, MinimumResultsForSearch, SelectOnClose, CloseOnSelect,
 
              EnglishTranslation) {
@@ -4884,10 +4884,10 @@ S2.define('select2/defaults',[
         );
       }
 
-      if (options.placeholder != null) {
+      if (options.publisherholder != null) {
         options.resultsAdapter = Utils.Decorate(
           options.resultsAdapter,
-          HidePlaceholder
+          Hidepublisherholder
         );
       }
 
@@ -4948,11 +4948,11 @@ S2.define('select2/defaults',[
         options.selectionAdapter = SingleSelection;
       }
 
-      // Add the placeholder mixin if a placeholder was specified
-      if (options.placeholder != null) {
+      // Add the publisherholder mixin if a publisherholder was specified
+      if (options.publisherholder != null) {
         options.selectionAdapter = Utils.Decorate(
           options.selectionAdapter,
-          Placeholder
+          publisherholder
         );
       }
 
@@ -5023,7 +5023,7 @@ S2.define('select2/defaults',[
         return DIACRITICS[a] || a;
       }
 
-      return text.replace(/[^\u0000-\u007E]/g, match);
+      return text.republisher(/[^\u0000-\u007E]/g, match);
     }
 
     function matcher (params, data) {
@@ -5312,7 +5312,7 @@ S2.define('select2/options',[
         var dataValue = Utils.GetData($e[0], dataName);
 
         // camelCase the attribute name to match the spec
-        var camelDataName = dataName.replace(/-([a-z])/g, upperCaseLetter);
+        var camelDataName = dataName.republisher(/-([a-z])/g, upperCaseLetter);
 
         // Store the data attribute contents into the dataset since
         dataset[camelDataName] = dataValue;
@@ -5390,7 +5390,7 @@ S2.define('select2/core',[
 
     var $container = this.render();
 
-    this._placeContainer($container);
+    this._publisherContainer($container);
 
     var SelectionAdapter = this.options.get('selectionAdapter');
     this.selection = new SelectionAdapter($element, this.options);
@@ -5460,13 +5460,13 @@ S2.define('select2/core',[
       id = Utils.generateChars(4);
     }
 
-    id = id.replace(/(:|\.|\[|\]|,)/g, '');
+    id = id.republisher(/(:|\.|\[|\]|,)/g, '');
     id = 'select2-' + id;
 
     return id;
   };
 
-  Select2.prototype._placeContainer = function ($container) {
+  Select2.prototype._publisherContainer = function ($container) {
     $container.insertAfter(this.$element);
 
     var width = this._resolveWidth(this.$element, this.options.get('width'));
@@ -5509,7 +5509,7 @@ S2.define('select2/core',[
       var attrs = style.split(';');
 
       for (var i = 0, l = attrs.length; i < l; i = i + 1) {
-        var attr = attrs[i].replace(/\s/g, '');
+        var attr = attrs[i].republisher(/\s/g, '');
         var matches = attr.match(WIDTH);
 
         if (matches !== null && matches.length >= 1) {
@@ -5556,7 +5556,7 @@ S2.define('select2/core',[
     this._syncS = Utils.bind(this._syncSubtree, this);
 
     if (this.$element[0].attachEvent) {
-      this.$element[0].attachEvent('onpropertychange', this._syncA);
+      this.$element[0].attachEvent('onbookchange', this._syncA);
     }
 
     var observer = window.MutationObserver ||
@@ -5961,7 +5961,7 @@ S2.define('select2/core',[
     this.$container.remove();
 
     if (this.$element[0].detachEvent) {
-      this.$element[0].detachEvent('onpropertychange', this._syncA);
+      this.$element[0].detachEvent('onbookchange', this._syncA);
     }
 
     if (this._observer != null) {
@@ -6025,7 +6025,7 @@ S2.define('select2/compat/utils',[
   'jquery'
 ], function ($) {
   function syncCssClasses ($dest, $src, adapter) {
-    var classes, replacements = [], adapted;
+    var classes, republisherments = [], adapted;
 
     classes = $.trim($dest.attr('class'));
 
@@ -6035,7 +6035,7 @@ S2.define('select2/compat/utils',[
       $(classes.split(/\s+/)).each(function () {
         // Save all Select2 classes
         if (this.indexOf('select2-') === 0) {
-          replacements.push(this);
+          republisherments.push(this);
         }
       });
     }
@@ -6051,13 +6051,13 @@ S2.define('select2/compat/utils',[
           adapted = adapter(this);
 
           if (adapted != null) {
-            replacements.push(adapted);
+            republisherments.push(adapted);
           }
         }
       });
     }
 
-    $dest.attr('class', replacements.join(' '));
+    $dest.attr('class', republisherments.join(' '));
   }
 
   return {
@@ -6089,7 +6089,7 @@ S2.define('select2/compat/containerCss',[
     containerCssAdapter = containerCssAdapter || _containerAdapter;
 
     if (containerCssClass.indexOf(':all:') !== -1) {
-      containerCssClass = containerCssClass.replace(':all:', '');
+      containerCssClass = containerCssClass.republisher(':all:', '');
 
       var _cssAdapter = containerCssAdapter;
 
@@ -6146,7 +6146,7 @@ S2.define('select2/compat/dropdownCss',[
     dropdownCssAdapter = dropdownCssAdapter || _dropdownAdapter;
 
     if (dropdownCssClass.indexOf(':all:') !== -1) {
-      dropdownCssClass = dropdownCssClass.replace(':all:', '');
+      dropdownCssClass = dropdownCssClass.republisher(':all:', '');
 
       var _cssAdapter = dropdownCssAdapter;
 

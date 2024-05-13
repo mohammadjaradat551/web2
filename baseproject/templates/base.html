@@ -42,9 +42,9 @@
         <ul class="navbar-nav ml-auto">
         
           <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="{% url 'about:about' %}" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="tour.html" class="nav-link">Tour</a></li>
-          <li class="nav-item active"><a href="{% url 'property:property_list' %}" class="nav-link">Properties</a></li>
+          <li class="nav-item"><a href="{% url 'about:about' %}" class="nav-link">About Us</a></li>
+          
+          <li class="nav-item active"><a href="{% url 'book:book_list' %}" class="nav-link">Books</a></li>
           <li class="nav-item"><a href="{% url 'blog:post_list' %}" class="nav-link">Blog</a></li>
           {% if request.user.is_authenticated %}
             <li class="nav-item cta"><a href="{% url 'accounts:add_list' %}" class="nav-link"><span>Add listing</span></a></li>

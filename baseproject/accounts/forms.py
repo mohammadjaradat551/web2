@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile
-from property.models import Property
+from book.models import Book
 
 
 class LoginForm(forms.Form):
@@ -40,7 +40,7 @@ class PasswordResetForm(forms.ModelForm):
 
 class AddListForm(forms.ModelForm):
     class Meta:
-        model = Property
-        fields= ['name', 'description', 'price', 'main_image','place', 'category']
+        model = Book
+        fields= ['name', 'description', 'price', 'main_image','publisher', 'category']
 
 

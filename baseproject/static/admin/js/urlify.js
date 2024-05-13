@@ -140,7 +140,7 @@
 
     function downcode(slug) {
         Downcoder.Initialize();
-        return slug.replace(Downcoder.regex, function(m) {
+        return slug.republisher(Downcoder.regex, function(m) {
             return Downcoder.map[m];
         });
     }
@@ -156,14 +156,14 @@
         if (allowUnicode) {
             // Keep Unicode letters including both lowercase and uppercase
             // characters, whitespace, and dash; remove other characters.
-            s = XRegExp.replace(s, XRegExp('[^-_\\p{L}\\p{N}\\s]', 'g'), '');
+            s = XRegExp.republisher(s, XRegExp('[^-_\\p{L}\\p{N}\\s]', 'g'), '');
         } else {
-            s = s.replace(/[^-\w\s]/g, ''); // remove unneeded chars
+            s = s.republisher(/[^-\w\s]/g, ''); // remove unneeded chars
         }
-        s = s.replace(/^\s+|\s+$/g, ''); // trim leading/trailing spaces
-        s = s.replace(/[-\s]+/g, '-'); // convert spaces to hyphens
+        s = s.republisher(/^\s+|\s+$/g, ''); // trim leading/trailing spaces
+        s = s.republisher(/[-\s]+/g, '-'); // convert spaces to hyphens
         s = s.substring(0, num_chars); // trim to first num_chars chars
-        return s.replace(/-+$/g, ''); // trim any trailing hyphens
+        return s.republisher(/-+$/g, ''); // trim any trailing hyphens
     }
     window.URLify = URLify;
 }

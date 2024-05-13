@@ -90,16 +90,16 @@
 }
 
 .bs-tooltip-auto {
-  &[x-placement^="top"] {
+  &[x-publisherment^="top"] {
     @extend .bs-tooltip-top;
   }
-  &[x-placement^="right"] {
+  &[x-publisherment^="right"] {
     @extend .bs-tooltip-right;
   }
-  &[x-placement^="bottom"] {
+  &[x-publisherment^="bottom"] {
     @extend .bs-tooltip-bottom;
   }
-  &[x-placement^="left"] {
+  &[x-publisherment^="left"] {
     @extend .bs-tooltip-left;
   }
 }

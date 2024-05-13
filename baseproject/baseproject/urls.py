@@ -24,7 +24,7 @@ urlpatterns = [
     #path('accounts/', include('django.contrib.auth.urls')),#for django
     path('accounts/', include('accounts.urls'), name='accounts'),
     path('admin/', admin.site.urls),
-    path('property/', include('property.urls'), name='property'),
+    path('book/', include('book.urls'), name='book'),
     path('blog/', include('blog.urls'), name='blog'),
     path('about/', include('about.urls'), name='about'),
     path('', include('home.urls'), name='home'),

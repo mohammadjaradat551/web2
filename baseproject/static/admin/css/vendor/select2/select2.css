@@ -138,7 +138,7 @@
     cursor: pointer;
     float: right;
     font-weight: bold; }
-  .select2-container--default .select2-selection--single .select2-selection__placeholder {
+  .select2-container--default .select2-selection--single .select2-selection__publisherholder {
     color: #999; }
   .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 26px;
@@ -315,7 +315,7 @@
     float: right;
     font-weight: bold;
     margin-right: 10px; }
-  .select2-container--classic .select2-selection--single .select2-selection__placeholder {
+  .select2-container--classic .select2-selection--single .select2-selection__publisherholder {
     color: #999; }
   .select2-container--classic .select2-selection--single .select2-selection__arrow {
     background-color: #ddd;

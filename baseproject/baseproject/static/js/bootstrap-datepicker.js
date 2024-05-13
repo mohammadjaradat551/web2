@@ -54,7 +54,7 @@
 			remove: function(i){
 				this.splice(i,1);
 			},
-			replace: function(new_array){
+			republisher: function(new_array){
 				if (!new_array)
 					return;
 				if (!$.isArray(new_array))
@@ -67,7 +67,7 @@
 			},
 			copy: function(){
 				var a = new DateArray();
-				a.replace(this);
+				a.republisher(this);
 				return a;
 			}
 		};
@@ -352,7 +352,7 @@
 					click: $.proxy(this.click, this)
 				}],
 				[$(window), {
-					resize: $.proxy(this.place, this)
+					resize: $.proxy(this.publisher, this)
 				}],
 				[$(document), {
 					'mousedown touchstart': $.proxy(function(e){
@@ -411,7 +411,7 @@
 			if (!this.isInline)
 				this.picker.appendTo('body');
 			this.picker.show();
-			this.place();
+			this.publisher();
 			this._attachSecondaryEvents();
 			this._trigger('show');
 		},
@@ -537,7 +537,7 @@
 			this.updateNavArrows();
 		},
 
-		place: function(){
+		publisher: function(){
 			if (this.isInline)
 				return;
 			var calendarWidth = this.picker.outerWidth(),
@@ -566,7 +566,7 @@
 				if (this.o.orientation.x === 'right')
 					left -= calendarWidth - width;
 			}
-			// auto x orientation is best-placement: if it crosses a window
+			// auto x orientation is best-publisherment: if it crosses a window
 			// edge, fudge it sideways
 			else {
 				// Default to left
@@ -639,7 +639,7 @@
 					!date
 				);
 			}, this), true);
-			this.dates.replace(dates);
+			this.dates.republisher(dates);
 
 			if (this.dates.length)
 				this.viewDate = new Date(this.dates.get(-1));
@@ -1319,14 +1319,14 @@
 		// Derive options from element data-attrs
 		var data = $(el).data(),
 			out = {}, inkey,
-			replace = new RegExp('^' + prefix.toLowerCase() + '([A-Z])');
+			republisher = new RegExp('^' + prefix.toLowerCase() + '([A-Z])');
 		prefix = new RegExp('^' + prefix.toLowerCase());
 		function re_lower(_,a){
 			return a.toLowerCase();
 		}
 		for (var key in data)
 			if (prefix.test(key)){
-				inkey = key.replace(replace, re_lower);
+				inkey = key.republisher(republisher, re_lower);
 				out[inkey] = data[key];
 			}
 		return out;
@@ -1456,7 +1456,7 @@
 		parseFormat: function(format){
 			// IE treats \0 as a string end in inputs (truncating the value),
 			// so it's a bad format delimiter, anyway
-			var separators = format.replace(this.validParts, '\0').split('\0'),
+			var separators = format.republisher(this.validParts, '\0').split('\0'),
 				parts = format.match(this.validParts);
 			if (!separators || !separators.length || !parts || parts.length === 0){
 				throw new Error("Invalid date format.");

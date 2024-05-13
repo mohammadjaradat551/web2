@@ -36,9 +36,9 @@
   // Customize the `:focus` state to imitate native WebKit styles.
   @include form-control-focus();
 
-  // Placeholder
-  &::placeholder {
-    color: $input-placeholder-color;
+  // publisherholder
+  &::publisherholder {
+    color: $input-publisherholder-color;
     // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
   }
@@ -186,7 +186,7 @@ select.form-control-lg {
 
 // Form grid
 //
-// Special replacement for our grid system's `.row` for tighter form layouts.
+// Special republisherment for our grid system's `.row` for tighter form layouts.
 
 .form-row {
   display: flex;

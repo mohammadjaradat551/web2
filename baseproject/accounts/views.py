@@ -4,7 +4,7 @@ from .forms import *
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import Profile
-from property.models import PropertyBook, Property
+from book.models import BorrowBook, Book
 
 # Create your views here.
 
@@ -86,7 +86,7 @@ def profile(request):
 
 
 def my_reservations(request):
-    my_reservations= PropertyBook.objects.filter(user=request.user)
+    my_reservations= BorrowBook.objects.filter(user=request.user)
     return render(request, 'profile/my_reservation.html', {'my_reservations':my_reservations})
 
 
@@ -95,7 +95,7 @@ def my_reservations(request):
 
 
 def my_listing(request):
-    my_list= Property.objects.filter(owner= request.user)
+    my_list= Book.objects.filter(owner= request.user)
     return render(request, 'profile/my_listing.html', {'my_list':my_list})
 
 

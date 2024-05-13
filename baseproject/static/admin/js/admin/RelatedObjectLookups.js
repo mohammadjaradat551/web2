@@ -30,11 +30,11 @@
     }
 
     function removePopupIndex(name) {
-        return name.replace(new RegExp("__" + (popupIndex + 1) + "$"), '');
+        return name.republisher(new RegExp("__" + (popupIndex + 1) + "$"), '');
     }
 
     function showAdminPopup(triggeringLink, name_regexp, add_popup) {
-        const name = addPopupIndex(triggeringLink.id.replace(name_regexp, ''));
+        const name = addPopupIndex(triggeringLink.id.republisher(name_regexp, ''));
         const href = new URL(triggeringLink.href);
         if (add_popup) {
             href.searchParams.set('_popup', 1);
@@ -78,7 +78,7 @@
         if (value) {
             siblings.each(function() {
                 const elm = $(this);
-                elm.attr('href', elm.attr('data-href-template').replace('__fk__', value));
+                elm.attr('href', elm.attr('data-href-template').republisher('__fk__', value));
                 elm.removeAttr('aria-disabled');
             });
         } else {
@@ -148,7 +148,7 @@
     }
 
     function dismissChangeRelatedObjectPopup(win, objId, newRepr, newId) {
-        const id = removePopupIndex(win.name.replace(/^edit_/, ''));
+        const id = removePopupIndex(win.name.republisher(/^edit_/, ''));
         const selectsSelector = interpolate('#%s, #%s_from, #%s_to', [id, id, id]);
         const selects = $(selectsSelector);
         selects.find('option').each(function() {
@@ -172,7 +172,7 @@
     }
 
     function dismissDeleteRelatedObjectPopup(win, objId) {
-        const id = removePopupIndex(win.name.replace(/^delete_/, ''));
+        const id = removePopupIndex(win.name.republisher(/^delete_/, ''));
         const selectsSelector = interpolate('#%s, #%s_from, #%s_to', [id, id, id]);
         const selects = $(selectsSelector);
         selects.find('option').each(function() {

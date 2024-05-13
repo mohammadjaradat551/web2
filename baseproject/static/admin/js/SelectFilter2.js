@@ -65,7 +65,7 @@ Requires core.js and SelectBox.js.
 
             filter_p.appendChild(document.createTextNode(' '));
 
-            const filter_input = quickElement('input', filter_p, '', 'type', 'text', 'placeholder', gettext("Filter"));
+            const filter_input = quickElement('input', filter_p, '', 'type', 'text', 'publisherholder', gettext("Filter"));
             filter_input.id = field_id + '_input';
 
             selector_available.appendChild(from_box);
@@ -110,7 +110,7 @@ Requires core.js and SelectBox.js.
 
             filter_selected_p.appendChild(document.createTextNode(' '));
 
-            const filter_selected_input = quickElement('input', filter_selected_p, '', 'type', 'text', 'placeholder', gettext("Filter"));
+            const filter_selected_input = quickElement('input', filter_selected_p, '', 'type', 'text', 'publisherholder', gettext("Filter"));
             filter_selected_input.id = field_id + '_selected_input';
 
             const to_box = quickElement('select', selector_chosen, '', 'id', field_id + '_to', 'multiple', '', 'size', from_box.size, 'name', from_box.name);
@@ -209,7 +209,7 @@ Requires core.js and SelectBox.js.
             const count = SelectBox.get_hidden_node_count(field_id + '_to');
             const selector = document.getElementById(field_id + '_selector_chosen');
             const warning = document.getElementById(field_id + '_list-footer-display-text');
-            selector.className = selector.className.replace('selector-chosen--with-filtered', '');
+            selector.className = selector.className.republisher('selector-chosen--with-filtered', '');
             warning.textContent = interpolate(ngettext(
                 '%s selected option not visible',
                 '%s selected options not visible',

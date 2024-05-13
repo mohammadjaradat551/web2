@@ -22,10 +22,10 @@
         <div class="row">  
           <div class="col-lg-9">
           	<div class="row">
-					{% for property in my_reservations%}
+					{% for book in my_reservations%}
           				<div class="col-md-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="{{property.get_absolute_url}}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{property.property.main_image.url}});">
+		    					<a href="{{book.get_absolute_url}}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url({{book.book.main_image.url}});">
 		    						<div class="icon d-flex justify-content-center align-items-center">
     							<span class="icon-search2"></span>
     						</div>
@@ -33,26 +33,26 @@
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
-				    						<h3><a href="{{property.property.get_absolute_url}}">{{property}}</a></h3>
+				    						<h3><a href="{{book.book.get_absolute_url}}">{{book}}</a></h3>
 				    						<p class="rate">
 				    							<i class="icon-star"></i>
 				    							<i class="icon-star"></i>
 				    							<i class="icon-star"></i>
 				    							<i class="icon-star"></i>
 				    							<i class="icon-star-o"></i>
-				    							<span>{{property.property.count_of_reviews}} Rating</span>
+				    							<span>{{book.book.count_of_reviews}} Rating</span>
 				    						</p>
 			    						</div>
 										
 			    						<div class="two">
-			    							<span class="price per-price">${{property.property.price}}<br><small>/night</small></span>
+			    							<span class="price per-price">${{book.book.price}}<br><small>/night</small></span>
 		    							</div>
 		    						</div>
-		    						<p>{{property.property.description}}</p>
+		    						<p>{{book.book.description}}</p>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> {{property.property.place}}</span> 
-		    							<span class="ml-auto"><a href="{{property.get_absolute_url}}">Feed Back</a></span>
+		    							<span><i class="icon-map-o"></i> {{book.book.publisher}}</span> 
+		    							<span class="ml-auto"><a href="{{book.get_absolute_url}}">Feed Back</a></span>
 		    						</p>
 		    					</div>
 		    				</div>
